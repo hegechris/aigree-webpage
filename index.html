@@ -4,15 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aigree – Gjør viktig informasjon forståelig</title>
-<meta name="description" content="Aigree gir arbeidsgivere kontroll på informasjonsflyten til de ansatte. Viktig informasjon levert, lest og forstått — med dokumentasjon.">
+<meta name="description" content="Du sender viktig informasjon til ansatte. Men ble den forstått? Med Aigree har du kontroll. Levert. Lest. Forstått.">
 <link rel="canonical" href="https://aigree.no/">
 <meta property="og:title" content="Aigree – Gjør viktig informasjon forståelig">
 <meta property="og:description" content="Dine folk er din viktigste investering. Sørg for at de faktisk forstår.">
 <meta property="og:locale" content="nb_NO">
 <meta property="og:site_name" content="Aigree">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aigree.no/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Aigree – Gjør viktig informasjon forståelig">
+<meta name="twitter:description" content="Du sender viktig informasjon til ansatte. Aigree sørger for at den blir forstått.">
 
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"Aigree","legalName":"Nordic Tide AS","url":"https://aigree.no","foundingDate":"2024","address":{"@type":"PostalAddress","addressLocality":"Trondheim","addressCountry":"NO"},"contactPoint":{"@type":"ContactPoint","email":"hello@aigree.no","contactType":"customer service","availableLanguage":["Norwegian","English"]}}
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Hva er Aigree?","acceptedAnswer":{"@type":"Answer","text":"Et verktøy der du sender viktig informasjon til ansatte — og får bekreftet at den er forstått. Innholdet tilpasses den som skal lese det, og du har oversikt over hvem som har forstått hva."}},{"@type":"Question","name":"Er Aigree et onboardingsverktøy?","acceptedAnswer":{"@type":"Answer","text":"Onboarding er én av mange situasjoner der du trenger Aigree. Nye prosedyrer, HMS-oppdateringer, lovendringer, sesongstart — alt viktig som skal ut til folk. Det handler om informasjonsflyt, ikke bare nyansatte."}},{"@type":"Question","name":"Hvem er Aigree laget for?","acceptedAnswer":{"@type":"Answer","text":"Bedrifter, organisasjoner og offentlige virksomheter som sender viktig informasjon til sine folk og trenger å vite at den ble forstått. Spesielt nyttig der dokumentene er komplekse, reguleringen er streng, eller konsekvensen av misforståelse er reell."}},{"@type":"Question","name":"Hvilke språk støttes?","acceptedAnswer":{"@type":"Answer","text":"Aigree tilpasser innholdet til mottakerens språk. Vi utvider språkstøtten basert på behov."}},{"@type":"Question","name":"Kan vi bruke vår egen merkevare?","acceptedAnswer":{"@type":"Answer","text":"Ja. Organisasjoner og forbund kan tilby Aigree som en whitelabel-løsning med egen branding."}},{"@type":"Question","name":"Erstatter Aigree HR-systemet vårt?","acceptedAnswer":{"@type":"Answer","text":"Nei. Aigree er frittstående og løser noe HR-systemet ikke gjør — at folk faktisk forstår det de får. Bruk det ved siden av det dere allerede har."}}]}
 </script>
 
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -20,19 +29,20 @@
 <style>
 :root {
   --white: #ffffff;
-  --off: #f8f8f6;
+  --off: #f2f2f2;
   --dark: #0f1a12;
   --dark-2: #1a2b1e;
   --dark-3: #243328;
   --text: #4a4a4a;
-  --text-light: #7a7a7a;
-  --text-on-dark: rgba(255,255,255,0.65);
-  --border: #e8e8e8;
-  --green: #8cc63f;
-  --green-soft: #e8f5d6;
-  --green-pale: #f4fae9;
+  --text-light: #636363;
+  --text-on-dark: rgba(255,255,255,0.82);
+  --border: #e0e0e0;
+  --green: #8cc53f;
+  --green-text: #3d7a0f;
+  --green-soft: #caefda;
+  --green-pale: #e8f5ed;
   --red-pale: #fef2f0;
-  --red-text: #c44b3a;
+  --red-text: #b33d2d;
   --serif: 'Instrument Serif', Georgia, serif;
   --sans: 'DM Sans', system-ui, sans-serif;
   --max-w: 1100px;
@@ -42,6 +52,23 @@
 html { scroll-behavior:smooth; }
 body { font-family:var(--sans); color:var(--dark); background:var(--white); line-height:1.65; font-size:16px; -webkit-font-smoothing:antialiased; }
 a { color:inherit; text-decoration:none; }
+
+/* UU: Skip to content */
+.skip-link {
+  position:absolute; top:-100%; left:50%; transform:translateX(-50%);
+  background:var(--dark); color:var(--white); padding:12px 24px;
+  border-radius:0 0 8px 8px; font-weight:600; font-size:0.9rem; z-index:200;
+  transition:top 0.2s;
+}
+.skip-link:focus { top:0; }
+
+/* UU: Focus visible */
+:focus-visible {
+  outline:2px solid var(--green); outline-offset:3px; border-radius:4px;
+}
+button:focus-visible, a:focus-visible {
+  outline:2px solid var(--green); outline-offset:3px;
+}
 
 /* NAV */
 nav {
@@ -57,7 +84,7 @@ nav {
 .nav-r a:hover { color:var(--dark); }
 .nav-r .btn {
   background:var(--dark); color:var(--white);
-  padding:9px 20px; border-radius:999px; font-weight:600;
+  padding:9px 20px; border-radius:10px; font-weight:600;
   transition:background 0.2s;
 }
 .nav-r .btn:hover { background:var(--dark-2); }
@@ -74,7 +101,7 @@ nav {
   margin-bottom:24px;
 }
 .hero h1 em {
-  font-style:italic; color:var(--green);
+  font-style:italic; color:var(--green-text);
 }
 .hero .lead {
   font-size:1.12rem; color:var(--text);
@@ -82,12 +109,12 @@ nav {
 }
 .hero-cta {
   display:inline-block;
-  background:var(--dark); color:var(--white);
-  padding:15px 32px; border-radius:999px;
-  font-size:0.95rem; font-weight:600;
+  background:var(--green); color:var(--dark);
+  padding:16px 36px; border-radius:12px;
+  font-size:0.95rem; font-weight:700;
   transition:transform 0.2s, background 0.2s;
 }
-.hero-cta:hover { background:var(--dark-2); transform:translateY(-1px); }
+.hero-cta:hover { background:#7ab535; transform:translateY(-1px); }
 .hero-sub { font-size:0.82rem; color:var(--text-light); margin-top:14px; }
 
 /* STATS */
@@ -99,10 +126,13 @@ nav {
 .s-card {
   padding:24px; border-radius:var(--radius);
   border:1px solid var(--border); background:var(--white);
+  border-top:3px solid var(--green);
+  transition:transform 0.2s;
 }
+.s-card:hover { transform:translateY(-2px); }
 .s-label {
   font-size:0.68rem; font-weight:700; letter-spacing:1.5px;
-  text-transform:uppercase; color:var(--green); margin-bottom:10px;
+  text-transform:uppercase; color:var(--green-text); margin-bottom:10px;
 }
 .s-num { font-family:var(--serif); font-size:2rem; line-height:1.1; margin-bottom:6px; }
 .s-text { font-size:0.84rem; color:var(--text); line-height:1.45; }
@@ -160,8 +190,13 @@ nav {
   line-height:1.1; margin-bottom:12px;
 }
 .steps .sub { font-size:1rem; color:var(--text); max-width:520px; margin:0 auto 56px; }
-.step-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; }
-.step-item { text-align:center; }
+.step-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:48px; position:relative; }
+.step-item { text-align:center; position:relative; }
+.step-item:not(:last-child)::after {
+  content:''; position:absolute; top:40px;
+  left:calc(50% + 48px); width:calc(100% - 48px);
+  height:1px; border-top:2px dashed var(--border);
+}
 .step-circle {
   width:80px; height:80px; border-radius:50%;
   background:var(--off); border:1px solid var(--border);
@@ -180,8 +215,105 @@ nav {
 .step-item h3 { font-size:1.05rem; font-weight:700; margin-bottom:6px; }
 .step-item p { font-size:0.88rem; color:var(--text); line-height:1.55; max-width:300px; margin:0 auto; }
 
+/* FLIP CARD BASE */
+.flip-wrap {
+  perspective:1000px; min-height:220px; cursor:pointer; position:relative;
+}
+.flip-hint {
+  position:absolute; bottom:10px; right:14px; z-index:2;
+  font-size:0.6rem; font-weight:600; letter-spacing:1px;
+  text-transform:uppercase; opacity:0; transition:opacity 0.3s;
+  pointer-events:none;
+}
+.flip-wrap:hover .flip-hint { opacity:0.4; }
+.val-flip .flip-hint { color:var(--text-light); }
+.feat-flip .flip-hint { color:rgba(255,255,255,0.4); }
+.flip-inner {
+  position:relative; width:100%; height:100%; min-height:220px;
+  transition:transform 0.5s ease;
+  transform-style:preserve-3d;
+}
+.flip-wrap:hover .flip-inner,
+.flip-wrap.flipped .flip-inner {
+  transform:rotateY(180deg);
+}
+.flip-front, .flip-back {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  backface-visibility:hidden;
+  border-radius:var(--radius);
+}
+.flip-back {
+  transform:rotateY(180deg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; padding:28px;
+}
+/* Val card flip */
+.val-flip .flip-front {
+  background:var(--white); border:1px solid var(--border);
+  padding:28px; border-radius:var(--radius);
+}
+.val-flip .flip-back {
+  background:var(--green-soft); border:1px solid var(--green);
+}
+.val-flip .flip-back .flip-num {
+  font-family:var(--serif); font-size:2.2rem; line-height:1.1;
+  color:var(--green-text); margin-bottom:8px;
+}
+.val-flip .flip-back .flip-text {
+  font-size:0.88rem; color:var(--dark); line-height:1.45; max-width:240px;
+}
+/* Feat card flip */
+.feat-flip .flip-front {
+  background:var(--dark-2); border:1px solid var(--dark-3);
+  padding:28px; border-radius:var(--radius);
+}
+.feat-flip .flip-back {
+  background:var(--green); border:1px solid var(--green);
+}
+.feat-flip .flip-back .flip-num {
+  font-family:var(--serif); font-size:2.2rem; line-height:1.1;
+  color:var(--dark); margin-bottom:8px;
+}
+.feat-flip .flip-back .flip-text {
+  font-size:0.88rem; color:var(--dark); line-height:1.45; max-width:240px; font-weight:500;
+}
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce) {
+  .flip-inner { transition:none; }
+}
+
+/* VALUE / GEVINST */
+.value { padding:100px 40px; background:var(--off); }
+.value .w { max-width:var(--max-w); margin:0 auto; }
+.value .eyebrow {
+  display:inline-block; font-size:0.72rem; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  color:var(--text-light); border:1px solid var(--border);
+  padding:6px 14px; border-radius:999px; margin-bottom:16px;
+}
+.value h2 {
+  font-family:var(--serif); font-weight:400;
+  font-size:clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height:1.1; margin-bottom:12px;
+}
+.value .sub { font-size:1rem; color:var(--text); max-width:560px; margin-bottom:48px; }
+.val-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+.val-card {
+  padding:28px; border-radius:var(--radius);
+  background:var(--white); border:1px solid var(--border);
+}
+.val-icon {
+  width:44px; height:44px; border-radius:12px;
+  background:var(--green-soft);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom:16px; color:var(--green-text);
+}
+.val-icon svg { width:20px; height:20px; }
+.val-card h3 { font-size:1rem; font-weight:700; margin-bottom:6px; }
+.val-card p { font-size:0.86rem; color:var(--text); line-height:1.55; }
+
 /* AUDIENCE TABS */
-.audience { padding:100px 40px; background:var(--off); }
+.audience { padding:100px 40px; background:var(--white); }
 .audience .w { max-width:var(--max-w); margin:0 auto; }
 .audience h2 {
   font-family:var(--serif); font-weight:400;
@@ -192,7 +324,7 @@ nav {
   display:flex; gap:8px; margin-bottom:40px; flex-wrap:wrap;
 }
 .a-tab {
-  padding:10px 20px; border-radius:999px;
+  padding:10px 20px; border-radius:10px;
   font-family:var(--sans); font-size:0.88rem; font-weight:600;
   color:var(--text); background:var(--white); border:1px solid var(--border);
   cursor:pointer; transition:all 0.2s;
@@ -219,8 +351,8 @@ nav {
 }
 .pg-pain { background:var(--red-pale); color:var(--red-text); }
 .pg-pain span { display:block; font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px; opacity:0.7; }
-.pg-gain { background:var(--green-pale); color:var(--dark); }
-.pg-gain span { display:block; font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); margin-bottom:4px; }
+.pg-gain { background:var(--green-soft); color:var(--dark); }
+.pg-gain span { display:block; font-size:0.65rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--green-text); margin-bottom:4px; }
 .a-bottom { font-size:0.82rem; color:var(--text-light); padding-top:16px; border-top:1px solid var(--border); }
 
 .a-side {
@@ -246,19 +378,26 @@ nav {
 .a-check svg { width:18px; height:18px; color:var(--green); flex-shrink:0; }
 
 /* FAQ */
-.faq { padding:100px 40px; }
-.faq .w { max-width:760px; margin:0 auto; }
+.faq { padding:100px 40px; background:var(--off); }
+.faq .w { max-width:var(--max-w); margin:0 auto; text-align:center; }
 .faq h2 {
   font-family:var(--serif); font-weight:400;
   font-size:clamp(1.8rem, 3vw, 2.4rem);
   margin-bottom:36px;
 }
-.faq-item {
-  border-bottom:1px solid var(--border); padding:20px 0;
+.faq-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:12px;
+  max-width:960px; margin:0 auto; text-align:left;
 }
+.faq-item {
+  padding:20px 24px; border-radius:var(--radius);
+  border:1px solid var(--border); background:var(--white);
+  transition:border-color 0.2s;
+}
+.faq-item:hover { border-color:var(--green); }
 .faq-q {
   width:100%; background:none; border:none;
-  font-family:var(--sans); font-size:0.95rem; font-weight:600;
+  font-family:var(--sans); font-size:0.9rem; font-weight:600;
   color:var(--dark); text-align:left; padding:0;
   cursor:pointer; display:flex; justify-content:space-between; align-items:center;
 }
@@ -269,7 +408,7 @@ nav {
 .faq-item.open .faq-q::after { content:'−'; }
 .faq-a {
   max-height:0; overflow:hidden; transition:max-height 0.3s;
-  font-size:0.92rem; color:var(--text); line-height:1.65;
+  font-size:0.86rem; color:var(--text); line-height:1.6;
 }
 .faq-item.open .faq-a { max-height:300px; padding-top:10px; }
 
@@ -326,13 +465,13 @@ nav {
 .ml-form-embedPermissionsContent p { font-size:0.75rem!important; color:var(--text-light)!important; line-height:1.4!important; font-family:var(--sans)!important; }
 .ml-form-embedSubmit { margin:14px 0 0!important; float:none!important; }
 .ml-form-embedSubmit button.primary {
-  background:var(--dark)!important; color:var(--white)!important;
-  border:none!important; border-radius:999px!important;
+  background:var(--green)!important; color:var(--dark)!important;
+  border:none!important; border-radius:12px!important;
   font-family:var(--sans)!important; font-size:0.94rem!important;
-  font-weight:600!important; padding:14px 24px!important;
+  font-weight:700!important; padding:14px 24px!important;
   width:100%!important; cursor:pointer; transition:background 0.2s!important;
 }
-.ml-form-embedSubmit button.primary:hover { background:var(--dark-2)!important; }
+.ml-form-embedSubmit button.primary:hover { background:#7ab535!important; }
 .ml-form-successContent { text-align:center; padding:32px 0; }
 .ml-form-successContent h4 { font-family:var(--serif)!important; font-size:1.3rem!important; font-weight:400!important; margin-bottom:8px!important; }
 .ml-form-successContent p { font-size:0.95rem!important; color:var(--text)!important; }
@@ -355,12 +494,33 @@ footer {
 }
 footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
 
+/* SCROLL ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to { opacity:1; transform:translateY(0); }
+}
+.fade-in {
+  opacity:0; transform:translateY(20px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.visible {
+  opacity:1; transform:translateY(0);
+}
+@media(prefers-reduced-motion:reduce) {
+  .fade-in { opacity:1; transform:none; transition:none; }
+  .flip-inner { transition:none; }
+  .s-card:hover { transform:none; }
+}
+
 /* RESPONSIVE */
 @media(max-width:900px) {
-  .stats-row, .feat-grid, .step-grid { grid-template-columns:1fr; }
+  .stats-row { grid-template-columns:repeat(2,1fr); }
+  .feat-grid, .step-grid, .val-grid { grid-template-columns:1fr; }
+  .step-item::after { display:none; }
   .a-panel.active { grid-template-columns:1fr; }
   .pg-row { grid-template-columns:1fr; }
   .cta-grid { grid-template-columns:1fr; gap:40px; }
+  .faq-grid { grid-template-columns:1fr; }
 }
 @media(max-width:768px) {
   nav { padding:12px 20px; }
@@ -375,7 +535,9 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
 </head>
 <body>
 
-<nav>
+<a href="#hovedinnhold" class="skip-link">Hopp til hovedinnhold</a>
+
+<nav aria-label="Hovednavigasjon">
   <div class="logo">aigree</div>
   <div class="nav-r">
     <a href="https://www.aigree.app">Logg inn</a>
@@ -384,9 +546,10 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
 </nav>
 
 <!-- HERO -->
+<main id="hovedinnhold">
 <section class="hero">
   <h1>Dine folk er din viktigste investering. Sørg for at de <em>faktisk forstår</em>.</h1>
-  <p class="lead">Kontrakter, sikkerhetsrutiner, prosedyrer, reglementer. Du sender det ut — men vet du at det ble forstått? Aigree gir deg kontroll på informasjonsflyten til de ansatte. Levert. Lest. Forstått.</p>
+  <p class="lead">Kontrakter, sikkerhetsrutiner, prosedyrer, reglementer. Du sender det ut — men det betyr ikke at det ble forstått. Med Aigree har du kontroll. Levert. Lest. Forstått.</p>
   <a href="#kontakt" class="hero-cta">Ta kontakt</a>
 </section>
 
@@ -395,19 +558,19 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
   <div class="s-card">
     <div class="s-label">Forståelsesbarrieren</div>
     <div class="s-num">400 000</div>
-    <div class="s-text">Voksne i Norge som strever med å lese og forstå vanlig tekst</div>
+    <div class="s-text">Voksne i Norge som sliter med å lese og forstå vanlig tekst</div>
     <div class="s-src">PIAAC / SSB, 2024</div>
   </div>
   <div class="s-card">
     <div class="s-label">Dokumentgapet</div>
     <div class="s-num">7 av 10</div>
-    <div class="s-text">Ansatte som aldri har fått viktig arbeidsinformasjon forklart på en strukturert måte</div>
+    <div class="s-text">Ansatte som aldri har fått viktig informasjon forklart skikkelig</div>
     <div class="s-src">HR Norge, 2023</div>
   </div>
   <div class="s-card">
     <div class="s-label">Oppmerksomhet</div>
     <div class="s-num">47 sek</div>
-    <div class="s-text">Gjennomsnittlig fokustid på en skjerm – ned fra 2,5 min i 2004</div>
+    <div class="s-text">Så lenge holder fokuset på en skjerm. Ned fra 2,5 minutter i 2004</div>
     <div class="s-src">Gloria Mark / APA, 2023</div>
   </div>
   <div class="s-card">
@@ -423,29 +586,53 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
   <div class="w">
     <span class="eyebrow">Løsningen</span>
     <h2>Du sender viktig informasjon. Du får bekreftet at den er forstått.</h2>
-    <p class="lead-dark">E-post gir deg levert. Signering gir deg lest. Aigree gir deg forstått — med dokumentasjon som holder ved tilsyn og revisjon.</p>
+    <p class="lead-dark">E-post gir deg levert. Signering gir deg lest. Aigree gir deg forstått — med dokumentasjon du kan vise frem.</p>
 
     <div class="feat-grid">
-      <div class="feat">
-        <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <div class="flip-wrap feat-flip">
+        <div class="flip-inner">
+          <div class="flip-front feat">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Tilpasset den som skal lese</h3>
+            <p>Innholdet tilpasses språk, rolle og nivå. En prosedyre som gir mening for den som faktisk skal følge den.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">400 000</div>
+            <div class="flip-text">voksne i Norge sliter med å lese vanlig tekst. Aigree gjør innholdet forståelig.</div>
+          </div>
         </div>
-        <h3>Tilpasset forståelse</h3>
-        <p>Innholdet tilpasses den enkeltes nivå og språk. Komplekst innhold blir forståelig — uansett bakgrunn.</p>
       </div>
-      <div class="feat">
-        <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      <div class="flip-wrap feat-flip">
+        <div class="flip-inner">
+          <div class="flip-front feat">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <h3>Full oversikt</h3>
+            <p>Hvem har lest. Hvem har forstått. Hvem trenger oppfølging. Du slipper å lure — du vet.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">7 av 10</div>
+            <div class="flip-text">har aldri fått viktig informasjon forklart skikkelig. Med Aigree ser du at det skjedde.</div>
+          </div>
         </div>
-        <h3>Sporbar forståelse</h3>
-        <p>Se hvem som har forstått hva, når, på hvilket språk. Dokumentasjon som holder ved tilsyn og revisjon.</p>
       </div>
-      <div class="feat">
-        <div class="feat-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <div class="flip-wrap feat-flip">
+        <div class="flip-inner">
+          <div class="flip-front feat">
+            <div class="feat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3>Mer enn onboarding</h3>
+            <p>Nye prosedyrer, lovendringer, sesonginfo, HMS-oppdateringer. Alt viktig som skal ut til de ansatte — ikke bare når noen er ny.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">47 sek</div>
+            <div class="flip-text">fokustid på en skjerm. Derfor må informasjonen treffe — første gang.</div>
+          </div>
         </div>
-        <h3>Løpende informasjonsflyt</h3>
-        <p>Ikke bare onboarding. Nye prosedyrer, lovendringer, sesonginfo, HMS-oppdateringer — alt som må nå frem og forstås.</p>
       </div>
     </div>
   </div>
@@ -456,7 +643,7 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
   <div class="w">
     <span class="eyebrow">Slik fungerer det</span>
     <h2>Tre steg til full kontroll</h2>
-    <p class="sub">Ingen tunge implementeringsprosjekter. Dere bestemmer innholdet – Aigree sørger for forståelsen.</p>
+    <p class="sub">Dere velger innholdet. Aigree gjør resten. Oppe og i gang på dagen.</p>
 
     <div class="step-grid">
       <div class="step-item">
@@ -464,30 +651,132 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
           <span class="step-badge">01</span>
         </div>
-        <h3>Samle innholdet</h3>
-        <p>Last opp kontrakter, rutiner og prosedyrer. Aigree strukturerer alt i deres eget merkevarerom.</p>
+        <h3>Last opp innholdet</h3>
+        <p>Legg inn kontrakter, rutiner og prosedyrer. Aigree samler alt på ett sted — med deres logo og profil.</p>
       </div>
       <div class="step-item">
         <div class="step-circle">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h8"/><path d="M8 13h5"/></svg>
           <span class="step-badge">02</span>
         </div>
-        <h3>Tilpasset forståelse</h3>
-        <p>Mottakeren får innholdet tilpasset sitt nivå og sin rolle. Bekrefter forståelse steg for steg.</p>
+        <h3>Den ansatte forstår</h3>
+        <p>Innholdet tilpasses nivå og rolle. Den ansatte leser, får det forklart, og bekrefter at de har forstått.</p>
       </div>
       <div class="step-item">
         <div class="step-circle">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 4-5"/></svg>
           <span class="step-badge">03</span>
         </div>
-        <h3>Dokumenter og følg opp</h3>
-        <p>Se hvem som har forstått hva. Følg opp der det trengs. Sporbart og dokumentert.</p>
+        <h3>Du har oversikten</h3>
+        <p>Se hvem som har lest og forstått. Følg opp dem som ikke har. Alt loggført.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- AUDIENCE — CHANGED: 5 tabs → 3 tabs -->
+<!-- VALUE: Hva forståelse gir bedriften -->
+<section class="value">
+  <div class="w">
+    <span class="eyebrow">Gevinsten</span>
+    <h2>Hva skjer når informasjonen faktisk blir forstått?</h2>
+    <p class="sub">Forståelse er ikke et mykt mål. Det merkes i færre hendelser, mindre gjentakelse, og dokumentasjon som faktisk holder.</p>
+
+    <div class="val-grid">
+      <div class="flip-wrap val-flip">
+        <div class="flip-inner">
+          <div class="flip-front val-card">
+            <div class="val-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Færre ulykker og avvik</h3>
+            <p>Folk som faktisk har forstått sikkerhetsrutinen, følger den. Det er forskjellen mellom en signatur og en trygg arbeidsplass.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">+50 %</div>
+            <div class="flip-text">økt ulykkesrisiko når ansatte ikke forstår sikkerhetsrutinene.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-wrap val-flip">
+        <div class="flip-inner">
+          <div class="flip-front val-card">
+            <div class="val-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Mindre gjentakelse — begge veier</h3>
+            <p>Ledere slipper å forklare de samme rutinene igjen og igjen. Og den ansatte slipper å spørre — de vet hvor de finner svaret selv. Alt er samlet på ett sted, alltid tilgjengelig.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">1 sted</div>
+            <div class="flip-text">Den ansatte vet hvor alt ligger. Lederen slipper å forklare. Begge vinner.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-wrap val-flip">
+        <div class="flip-inner">
+          <div class="flip-front val-card">
+            <div class="val-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
+            </div>
+            <h3>Lavere turnover</h3>
+            <p>Folk som forstår jobben sin, rettighetene sine og hva som forventes — de blir. Det er billigere å beholde enn å erstatte.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">~937K</div>
+            <div class="flip-text">kroner per avgang i produksjon. Det lønner seg å beholde folk.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-wrap val-flip">
+        <div class="flip-inner">
+          <div class="flip-front val-card">
+            <div class="val-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15l2 2 4-4"/></svg>
+            </div>
+            <h3>Klar for tilsyn</h3>
+            <p>Arbeidstilsynet spør om opplæringen er gjennomført. Du viser dem hvem som har forstått hva, og når. Ferdig.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">17 000</div>
+            <div class="flip-text">tilsyn i året. Med Aigree er du klar når det er din tur.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-wrap val-flip">
+        <div class="flip-inner">
+          <div class="flip-front val-card">
+            <div class="val-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3>Raskere i gang</h3>
+            <p>Nye folk og innleide bruker mindre tid på å lure og mer tid på å levere. Fordi de faktisk vet hva som gjelder.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">8 mnd</div>
+            <div class="flip-text">før en nyansatt er fullt produktiv. Med god informasjonsflyt: uker.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flip-wrap val-flip">
+        <div class="flip-inner">
+          <div class="flip-front val-card">
+            <div class="val-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Tryggere arbeidsplass</h3>
+            <p>Når alle forstår det samme — rutiner, rettigheter, forventninger — slipper folk å gjette. Det bygger tillit.</p>
+          </div>
+          <div class="flip-back">
+            <div class="flip-num">Alle</div>
+            <div class="flip-text">forstår det samme. Ingen gjetter. Ingen faller utenfor.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
 <section class="audience">
   <div class="w">
     <h2>Laget for alle som sender viktig informasjon til sine folk.</h2>
@@ -502,11 +791,11 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
       <!-- BEDRIFTER -->
       <div class="a-panel active" id="p-biz">
         <div class="a-main">
-          <h3>Viktig informasjon som faktisk når frem</h3>
-          <p>Kontrakter, HMS-rutiner, sikkerhetsblad, fraværsreglement. Du sender det ut — men vet du at det ble forstått? Aigree gir deg kontroll på informasjonsflyten til de ansatte, med dokumentasjon som holder ved tilsyn.</p>
+          <h3>Du vet at informasjonen har landet</h3>
+          <p>HMS-rutiner, kontrakter, fraværsregler, sikkerhetsblad — mye skal ut til mange. Aigree gjør det enkelt å sende, tilpasse og følge opp. Du ser hvem som har fått med seg hva, og har dokumentasjonen klar når noen spør.</p>
           <div class="pg-row">
-            <div class="pg-card pg-pain"><span>Utfordringen</span>Ingen vet om ansatte forsto det de signerte.</div>
-            <div class="pg-card pg-gain"><span>Gevinsten</span>Dokumentert forståelse. Sporbarhet. Mindre gjentakelse.</div>
+            <div class="pg-card pg-pain"><span>Utfordringen</span>Du sender ut informasjon, men aner ikke om den ble forstått.</div>
+            <div class="pg-card pg-gain"><span>Gevinsten</span>Oversikt, dokumentasjon og mindre gjentakelse.</div>
           </div>
           <div class="a-bottom">For alle bransjer med viktig informasjon til ansatte — industri, oppdrett, bygg, produksjon, service.</div>
         </div>
@@ -516,10 +805,10 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
             Hvorfor Aigree?
           </div>
           <div class="a-check-list">
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Sporbar forståelse per ansatt</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Tilpasset mottakerens nivå og rolle</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Spart ledertid på gjentatte forklaringer</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Alt samlet på ett sted for den ansatte</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Du ser hvem som har forstått hva</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Tilpasset den som skal lese det</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Ledere slipper å gjenta seg</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Den ansatte har alt samlet på ett sted</div>
           </div>
         </div>
       </div>
@@ -527,11 +816,11 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
       <!-- ORGANISASJONER OG FORBUND -->
       <div class="a-panel" id="p-org">
         <div class="a-main">
-          <h3>Gi verdi til medlemmene — med deres merkevare</h3>
-          <p>Tilby Aigree som en tjeneste til medlemsbedriftene. Dere legger inn bransjeinnhold, hver bedrift legger til sitt. Festivaler, frivillige organisasjoner, bransjeforeninger og fagforbund — alle kan bruke Aigree til å nå sine folk med viktig informasjon.</p>
+          <h3>Gi medlemmene noe de faktisk bruker</h3>
+          <p>Legg inn bransjeinnhold, la hver bedrift legge til sitt eget. Aigree kan kjøres med deres logo og profil — som en del av medlemstilbudet.</p>
           <div class="pg-row">
-            <div class="pg-card pg-pain"><span>Utfordringen</span>Vanskelig å nå ut med viktig informasjon til alle.</div>
-            <div class="pg-card pg-gain"><span>Gevinsten</span>Konkret verdi med whitelabel-løsning i deres branding.</div>
+            <div class="pg-card pg-pain"><span>Utfordringen</span>Viktig bransjeinfo når ikke ut til de som trenger den.</div>
+            <div class="pg-card pg-gain"><span>Gevinsten</span>Konkret medlemsverdi — i deres egen drakt.</div>
           </div>
           <div class="a-bottom">For bransjeorganisasjoner, fagforeninger, forbund, festivaler og frivillige organisasjoner.</div>
         </div>
@@ -541,10 +830,10 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
             Hvorfor Aigree?
           </div>
           <div class="a-check-list">
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Whitelabel med deres branding</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Bransjeinnhold + bedriftsspesifikt</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Deres logo, deres profil</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Felles bransjeinnhold + bedriftens eget</div>
             <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Oversikt på tvers av medlemmer</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Styrket medlemstilbud</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Noe medlemmene faktisk tar i bruk</div>
           </div>
         </div>
       </div>
@@ -552,11 +841,11 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
       <!-- OFFENTLIG SEKTOR -->
       <div class="a-panel" id="p-pub">
         <div class="a-main">
-          <h3>Inkludering som fungerer i praksis</h3>
-          <p>Viktig informasjon skal nå frem til alle — uavhengig av bakgrunn, leseferdigheter eller rolle. Aigree gjør kommunal og offentlig informasjon tilgjengelig og forståelig for alle ansatte og brukere.</p>
+          <h3>Informasjon som når alle — ikke bare de som leser godt norsk</h3>
+          <p>Ansatte og brukere med ulik bakgrunn trenger å forstå det som gjelder dem. Aigree gjør det mulig — uten at noen må spørre om igjen.</p>
           <div class="pg-row">
-            <div class="pg-card pg-pain"><span>Utfordringen</span>Spredt informasjon og språkbarrierer.</div>
-            <div class="pg-card pg-gain"><span>Gevinsten</span>Reell tilgang til informasjon på eget språk.</div>
+            <div class="pg-card pg-pain"><span>Utfordringen</span>Informasjonen finnes, men den forstås ikke av alle.</div>
+            <div class="pg-card pg-gain"><span>Gevinsten</span>Alle forstår det som gjelder dem — på sitt nivå.</div>
           </div>
           <div class="a-bottom">For kommuner, helseforetak, NAV, integreringstjenester og offentlige virksomheter.</div>
         </div>
@@ -567,9 +856,9 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
           </div>
           <div class="a-check-list">
             <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Oversikt per avdeling</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Forklart på mottakerens språk</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Tilpasset den enkeltes språk og nivå</div>
             <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Alt samlet digitalt</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Dokumentert informasjonsflyt</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Du kan dokumentere at det nådde frem</div>
           </div>
         </div>
       </div>
@@ -577,11 +866,11 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
       <!-- IDEELLE OG FRIVILLIGE -->
       <div class="a-panel" id="p-ide">
         <div class="a-main">
-          <h3>Gjør rettigheter og plikter forståelig for alle</h3>
-          <p>Mennesker i sårbare situasjoner trenger å forstå dokumentene som påvirker livene deres — arbeidskontrakter, rettigheter, regelverk, rutiner. Aigree gjør viktig informasjon tilgjengelig uansett språk og bakgrunn, og gir organisasjonen sporbarhet på at informasjonen nådde frem.</p>
+          <h3>Rettigheter og plikter — forklart slik at folk faktisk forstår</h3>
+          <p>Arbeidskontrakter, regelverk, rutiner. Folk som trenger hjelp til å forstå viktige dokumenter, fortjener mer enn en PDF på norsk. Aigree tilpasser informasjonen og gir organisasjonen oversikt over at den nådde frem.</p>
           <div class="pg-row">
-            <div class="pg-card pg-pain"><span>Utfordringen</span>Mennesker som ikke forstår dokumentene de mottar.</div>
-            <div class="pg-card pg-gain"><span>Gevinsten</span>Reell forståelse. Trygghet. Dokumentert oppfølging.</div>
+            <div class="pg-card pg-pain"><span>Utfordringen</span>Folk som får dokumenter de ikke forstår.</div>
+            <div class="pg-card pg-gain"><span>Gevinsten</span>De forstår. De er trygge. Og du kan vise at det skjedde.</div>
           </div>
           <div class="a-bottom">For ideelle organisasjoner, integreringstjenester, rettshjelp og andre som jobber med mennesker i sårbare situasjoner.</div>
         </div>
@@ -591,10 +880,10 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
             Hvorfor Aigree?
           </div>
           <div class="a-check-list">
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Informasjon forklart på mottakerens nivå</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Personlig dokumentsamling for brukeren</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Sporbarhet for organisasjonen</div>
-            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Whitelabel i organisasjonens branding</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Forklart på et nivå som gir mening</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Alt samlet for den det gjelder</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Organisasjonen ser at det nådde frem</div>
+            <div class="a-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Kan kjøres med egen logo og profil</div>
           </div>
         </div>
       </div>
@@ -606,29 +895,31 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
 <section class="faq">
   <div class="w">
     <h2>Ofte stilte spørsmål</h2>
+    <div class="faq-grid">
     <div class="faq-item">
       <button class="faq-q">Hva er Aigree?</button>
-      <div class="faq-a">Et verktøy der arbeidsgivere sender viktig informasjon til ansatte — og får bekreftet at den er forstått. Innholdet tilpasses mottakerens nivå og rolle, og arbeidsgiver har sporbarhet på hvem som har forstått hva.</div>
+      <div class="faq-a">Et verktøy der du sender viktig informasjon til ansatte — og får bekreftet at den er forstått. Innholdet tilpasses den som skal lese det, og du har oversikt over hvem som har forstått hva.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Er Aigree et onboardingsverktøy?</button>
-      <div class="faq-a">Onboarding er én av mange brukssituasjoner. Aigree dekker all viktig informasjon som må nå frem til ansatte — nye prosedyrer, HMS-oppdateringer, lovendringer, sesongkommunikasjon, og ja, onboarding. Det handler om informasjonsflyt, ikke bare nyansatte.</div>
+      <div class="faq-a">Onboarding er én av mange situasjoner der du trenger Aigree. Nye prosedyrer, HMS-oppdateringer, lovendringer, sesongstart — alt viktig som skal ut til folk. Det handler om informasjonsflyt, ikke bare nyansatte.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Hvem er Aigree laget for?</button>
-      <div class="faq-a">Bedrifter, organisasjoner og offentlige virksomheter som sender viktig informasjon til sine folk — og trenger å vite at den ble forstått. Spesielt relevant der dokumentene er komplekse, der det er høy regulering, eller der konsekvensen av misforståelse er reell.</div>
+      <div class="faq-a">Bedrifter, organisasjoner og offentlige virksomheter som sender viktig informasjon til sine folk og trenger å vite at den ble forstått. Spesielt nyttig der dokumentene er komplekse, reguleringen er streng, eller konsekvensen av misforståelse er reell.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Hvilke språk støttes?</button>
-      <div class="faq-a">Aigree tilpasser innholdet til mottakerens språk. Flerspråklig støtte er under aktiv utvikling, og vi utvider basert på behov.</div>
+      <div class="faq-a">Aigree tilpasser innholdet til mottakerens språk. Vi utvider språkstøtten basert på behov.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Kan vi bruke vår egen merkevare?</button>
-      <div class="faq-a">Ja. Organisasjoner og forbund kan tilby Aigree som en whitelabel-løsning med egen branding.</div>
+      <div class="faq-a">Ja. Organisasjoner og forbund kan kjøre Aigree med egen logo og profil.</div>
     </div>
     <div class="faq-item">
       <button class="faq-q">Erstatter Aigree HR-systemet vårt?</button>
-      <div class="faq-a">Nei. Aigree er frittstående og løser noe eksisterende systemer ikke dekker — dokumentforståelse. Det kan brukes side om side med HR-, HMS- og lønnssystemer dere allerede har. Integrasjoner kan bygges ved behov.</div>
+      <div class="faq-a">Nei. Aigree er frittstående og løser noe HR-systemet ikke gjør — at folk faktisk forstår det de får. Bruk det ved siden av det dere allerede har.</div>
+    </div>
     </div>
   </div>
 </section>
@@ -638,19 +929,19 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
   <div class="cta-grid">
     <div class="cta-copy">
       <h2>Sendt er ikke det samme som forstått.</h2>
-      <p class="sub">Fyll inn skjemaet, så tar vi kontakt for en uforpliktende samtale om hvordan Aigree kan fungere for deres virksomhet.</p>
+      <p class="sub">Ta en prat med oss. Vi finner ut om Aigree passer for dere — og hvordan dere kan komme i gang.</p>
       <div class="cta-points">
         <div class="cta-point">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Uforpliktende – ingen binding
+          Uforpliktende og gratis
         </div>
         <div class="cta-point">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Vi tilpasser oss deres behov
+          Du forteller, vi lytter
         </div>
         <div class="cta-point">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-          Svar innen et par virkedager
+          Svar innen et par dager
         </div>
       </div>
     </div>
@@ -671,7 +962,7 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
                 <div class="ml-form-embedPermissions"><div class="ml-form-embedPermissionsContent default privacy-policy"><p><em>Vi lagrer kun informasjonen du oppgir for å følge opp din henvendelse. Vi sender ikke markedsføring.</em></p></div></div>
                 <input type="hidden" name="ml-submit" value="1">
                 <div class="ml-form-embedSubmit">
-                  <button type="submit" class="primary">Send henvendelse</button>
+                  <button type="submit" class="primary">Send melding</button>
                   <button disabled style="display:none;" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Laster...</span></button>
                 </div>
                 <input type="hidden" name="anticsrf" value="true">
@@ -684,6 +975,7 @@ footer .f-logo { font-weight:700; color:var(--dark); font-size:1rem; }
     </div>
   </div>
 </section>
+</main>
 
 <footer>
   <span class="f-logo">aigree</span>
@@ -716,6 +1008,42 @@ function ml_webform_success_33564892(){var r=document.querySelector('.ml-subscri
       for(var y=0;y<all.length;y++)all[y].classList.remove('open');
       if(!w)item.classList.add('open');
     });
+  }
+})();
+
+// Scroll animations
+(function(){
+  var els=document.querySelectorAll('.s-card,.flip-wrap,.step-item,.a-panel,.faq-item');
+  for(var i=0;i<els.length;i++) els[i].classList.add('fade-in');
+  if('IntersectionObserver' in window){
+    var ob=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.style.transitionDelay=(e.target.dataset.d||'0')+'ms';
+          e.target.classList.add('visible');
+        }
+      });
+    },{threshold:0.1});
+    for(var j=0;j<els.length;j++){
+      els[j].dataset.d=Math.min((j%6)*80,400);
+      ob.observe(els[j]);
+    }
+  } else {
+    for(var k=0;k<els.length;k++) els[k].classList.add('visible');
+  }
+})();
+
+// Flip cards: tap to flip on mobile + add hints
+(function(){
+  var flips=document.querySelectorAll('.flip-wrap');
+  for(var i=0;i<flips.length;i++){
+    flips[i].addEventListener('click',function(){
+      this.classList.toggle('flipped');
+    });
+    var hint=document.createElement('span');
+    hint.className='flip-hint';
+    hint.innerHTML='&#x21bb; Snu';
+    flips[i].appendChild(hint);
   }
 })();
 </script>
