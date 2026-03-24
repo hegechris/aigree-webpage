@@ -9,6 +9,8 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aigree — Sendt er ikke det samme som forstått">
 <meta property="og:locale" content="nb_NO">
+<meta property="og:url" content="https://aigree.no/">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta property="og:description" content="Aigree sørger for at viktig informasjon faktisk når frem og blir forstått — og at du kan dokumentere at det skjedde.">
 <meta property="og:image" content="https://aigree.no/images/seo-og.jpg">
 <meta property="og:image:width" content="3000">
@@ -44,16 +46,6 @@ body{font-family:var(--font-b);color:var(--charcoal);background:var(--cream);lin
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
 
-/* ── Placeholder-bilder ── */
-.ph{
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;
-  border:2px dashed var(--taupe);border-radius:14px;background:var(--cream-w);
-  color:var(--charcoal-s);font-family:var(--font-b);overflow:hidden;position:relative;
-}
-.ph-label{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.55}
-.ph-desc{font-size:.82rem;opacity:.45;text-align:center;max-width:220px;line-height:1.4}
-.ph-icon{opacity:.25}
-
 /* Nav */
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--taupe)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;padding-bottom:1rem}
@@ -61,6 +53,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .logo-img{height:32px;width:auto}
 .nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--burnt);color:var(--white);font-family:var(--font-b);font-weight:500;font-size:.9rem;padding:.6rem 1.25rem;border-radius:8px;border:none;cursor:pointer;text-decoration:none;transition:all .25s}
 .nav-cta:hover{background:var(--burnt-l);transform:translateY(-1px);box-shadow:0 4px 12px rgba(217,119,6,.2)}
+.nav-links{display:flex;align-items:center;gap:.5rem}
+.nav-a{color:var(--charcoal);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 14px;border-radius:8px;transition:background .15s}
+.nav-a:hover{background:rgba(0,0,0,.04)}
+@media(max-width:767px){.nav-a{display:none}}
 
 /* Hero */
 .hero{position:relative;padding:5rem 0 6rem;overflow:hidden}
@@ -115,7 +111,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .diff-header p{color:var(--charcoal-s);font-size:1.05rem;line-height:1.7}
 .diff-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
 @media(min-width:768px){.diff-grid{grid-template-columns:repeat(3,1fr)}}
-.diff-card{background:var(--white);border:1px solid var(--taupe);border-radius:14px;padding:2rem;position:relative;transition:all .3s;overflow:visible}
+.diff-card{background:var(--cream);border:1px solid var(--taupe);border-radius:14px;padding:2rem;position:relative;transition:all .3s;overflow:visible}
 .diff-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:var(--sage)}
 .diff-card:hover{border-color:var(--sage)}
 .diff-card .ph{width:100%;height:140px;margin-bottom:1.25rem;border-radius:10px}
@@ -137,10 +133,9 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 @media(min-width:768px){.usecase-grid{grid-template-columns:repeat(3,1fr)}}
 .usecase-card{background:var(--white);border:1px solid var(--taupe);border-radius:12px;padding:1.5rem;transition:all .3s}
 .usecase-card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 4px 16px rgba(45,95,79,.06)}
-.usecase-icon{width:44px;height:44px;border-radius:10px;background:rgba(45,95,79,.07);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem}
-.usecase-icon svg{width:22px;height:22px;stroke:var(--sage);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .usecase-card h4{font-family:var(--font-d);font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:.35rem;line-height:1.3}
 .usecase-card p{font-size:.82rem;color:var(--charcoal-s);line-height:1.6}
+.usecase-img{width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem}
 
 /* Who — tabs */
 .who{padding:5rem 0;background:var(--white)}
@@ -184,14 +179,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 @media(min-width:768px){.model-inner{grid-template-columns:1fr 1fr}}
 .model h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:.75rem}
 .model-text{font-size:.95rem;color:var(--charcoal-s);line-height:1.7}
-.model-boxes{display:flex;gap:0;align-items:center}
-.model-box{flex:1;border-radius:14px;padding:1.5rem;text-align:center}
-.model-box.org{background:var(--sage);color:var(--cream);border:2px solid var(--sage)}
-.model-box.emp{background:var(--white);border:2px solid var(--taupe);color:var(--charcoal)}
-.model-box h4{font-family:var(--font-d);font-size:.95rem;font-weight:600;margin-bottom:.35rem}
-.model-box p{font-size:.82rem;opacity:.8;line-height:1.5}
-.model-arrow{flex-shrink:0;width:48px;display:flex;align-items:center;justify-content:center;color:var(--burnt);font-size:1.4rem}
-
 /* CTA */
 .cta-section{padding:5.5rem 0;background:var(--sage-d);color:var(--cream);position:relative;overflow:hidden}
 .cta-section::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%)}
@@ -255,9 +242,6 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
   .addon{padding:2.5rem 0}.model{padding:2.5rem 0}
   .usecase-grid{grid-template-columns:1fr 1fr;gap:.75rem}
   .usecase-card{padding:1.1rem}.usecase-card h4{font-size:.9rem}.usecase-card p{font-size:.78rem}
-  .model-boxes{flex-direction:column;width:100%}
-  .model-box{width:100%;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center}
-  .model-arrow{transform:none}
   .gap-card{align-items:center}
 }
 </style>
@@ -269,7 +253,11 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 <div class="container nav-inner">
 <!-- PLACEHOLDER: Bytt til <img src="logo.svg" alt="Aigree" class="logo-img"> -->
 <a href="#" class="logo">aigree</a>
+<div class="nav-links">
+<a href="#slik-fungerer-det" class="nav-a">Slik fungerer det</a>
+<a href="#hvem-bruker-det" class="nav-a">For hvem</a>
 <a href="#kontakt" class="nav-cta">Ta kontakt</a>
+</div>
 </div>
 </nav>
 
@@ -285,7 +273,7 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 </div>
 <!-- Hero-bilde -->
 <div class="hero-visual fade-up-d2">
-<img src="images/final/hero-industrial-onboarding.jpg" alt="Onboarding og sikkerhetsgjennomgang i et industrielt miljø" style="width:100%;max-width:480px;border-radius:14px;box-shadow:0 8px 40px rgba(30,69,56,.12);">
+<img src="images/final/hero-industrial-onboarding.jpg" alt="Onboarding og sikkerhetsgjennomgang i et industrielt miljø">
 </div>
 </div>
 </div>
@@ -362,22 +350,22 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 </div>
 <div class="usecase-grid">
 <div class="usecase-card reveal">
-<img src="images/final/onboarding.jpg" alt="Onboarding" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<img src="images/final/onboarding.jpg" alt="Onboarding" class="usecase-img">
 <h4>Onboarding</h4><p>Nye ansatte får alt de trenger på ett sted — forklart slik at det faktisk blir forstått.</p></div>
 <div class="usecase-card reveal reveal-d1">
-<img src="images/final/procedures.jpg" alt="Nye rutiner" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<img src="images/final/procedures.jpg" alt="Nye rutiner" class="usecase-img">
 <h4>Nye rutiner og prosedyrer</h4><p>Når noe endres, sikrer du at alle berørte faktisk har fått det med seg – og forstått hva det betyr for dem.</p></div>
 <div class="usecase-card reveal reveal-d2">
-<img src="images/final/hms.jpg" alt="HMS og sikkerhet" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<img src="images/final/hms.jpg" alt="HMS og sikkerhet" class="usecase-img">
 <h4>HMS og sikkerhet</h4><p>Når sikkerhetsrutiner oppdateres, kan du dokumentere at alle har forstått endringene – ikke bare mottatt dem.</p></div>
 <div class="usecase-card reveal">
-<img src="images/final/practical.jpg" alt="Det praktiske" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<img src="images/final/practical.jpg" alt="Det praktiske" class="usecase-img">
 <h4>Det praktiske</h4><p>Wifi-passord, kaffeavtale, parkeringsregler, alarmsystem – alt folk trenger å vite fra dag én, på ett sted.</p></div>
 <div class="usecase-card reveal reveal-d1">
-<img src="images/final/seasonal.jpg" alt="Sesongarbeid" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<img src="images/final/seasonal.jpg" alt="Sesongarbeid" class="usecase-img">
 <h4>Sesongarbeid</h4><p>Mange nye folk på kort tid, med ulik bakgrunn og språk. Aigree gjør onboarding og opplæring skalerbar.</p></div>
 <div class="usecase-card reveal reveal-d2">
-<img src="images/final/rights.jpg" alt="Rettigheter og rådgivning" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<img src="images/final/rights.jpg" alt="Rettigheter og rådgivning" class="usecase-img">
 <h4>Rettigheter og rådgivning</h4><p>Hjelp folk å forstå egne rettigheter, vedtak og kontrakter, slik at de vet hvordan ting foregår og kan ta informerte valg.</p></div>
 </div>
 </div>
