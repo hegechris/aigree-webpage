@@ -77,8 +77,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .hero-cta svg{transition:transform .25s}.hero-cta:hover svg{transform:translateX(3px)}
 .hero-visual{display:none}
 @media(min-width:768px){.hero-visual{display:flex;justify-content:center;align-items:center}}
-.hero-mobile-img{display:block;width:72px;height:72px;border-radius:50%;object-fit:cover;margin-bottom:1.25rem;box-shadow:0 4px 16px rgba(30,69,56,.15)}
-@media(min-width:768px){.hero-mobile-img{display:none}}
+.hero-mobile-circle{display:none}
+@media(max-width:767px){
+  .hero-mobile-circle{display:block;position:absolute;top:-20px;right:-40px;width:140px;height:140px;border-radius:50%;background:var(--sage-d);padding:6px;box-shadow:0 4px 20px rgba(30,69,56,.2);z-index:1}
+  .hero-mobile-circle img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+  .hero{overflow:hidden}
+}
 .hero-visual img{width:100%;border-radius:14px;box-shadow:0 8px 40px rgba(30,69,56,.12);max-width:480px;aspect-ratio:4/3}
 .hero-visual .ph{width:100%;aspect-ratio:4/3;max-width:480px}
 
@@ -280,7 +284,7 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 <div class="container">
 <div class="hero-grid">
 <div class="hero-content">
-<img src="images/final/hero-industrial-onboarding.jpg" alt="" class="hero-mobile-img fade-up">
+<div class="hero-mobile-circle fade-up"><img src="images/final/hero-industrial-onboarding.jpg" alt=""></div>
 <span class="hero-tag fade-up">Forståelsesinfrastruktur for arbeidslivet</span>
 <h1 class="fade-up-d1">Sendt er ikke det samme som <em>forstått.</em></h1>
 <p class="hero-sub fade-up-d2">Du sender kontrakter, HMS og rutiner. Men vet du egentlig om de ble forstått? Aigree tilpasser, bekrefter og gir deg oversikten.</p>
