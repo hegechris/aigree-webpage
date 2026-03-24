@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /blogg/
+
+Sitemap: https://aigree.no/sitemap.xml
