@@ -9,6 +9,14 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Aigree — Sendt er ikke det samme som forstått">
 <meta property="og:locale" content="nb_NO">
+<meta property="og:description" content="Aigree sørger for at viktig informasjon faktisk når frem og blir forstått — og at du kan dokumentere at det skjedde.">
+<meta property="og:image" content="https://aigree.no/images/seo-og.jpg">
+<meta property="og:image:width" content="3000">
+<meta property="og:image:height" content="2003">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Aigree — Sendt er ikke det samme som forstått">
+<meta name="twitter:description" content="Aigree sørger for at viktig informasjon faktisk når frem og blir forstått — og at du kan dokumentere at det skjedde.">
+<meta name="twitter:image" content="https://aigree.no/images/seo-og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
@@ -27,7 +35,6 @@ body{font-family:var(--font-b);color:var(--charcoal);background:var(--cream);lin
 .container{width:100%;max-width:1200px;margin:0 auto;padding:0 1.25rem}
 @media(min-width:768px){.container{padding:0 2rem}}
 @media(min-width:1024px){.container{padding:0 2.5rem}}
-/* Animations */
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp .7s ease-out both}
 .fade-up-d1{animation:fadeUp .7s .1s ease-out both}
@@ -36,16 +43,31 @@ body{font-family:var(--font-b);color:var(--charcoal);background:var(--cream);lin
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease-out,transform .7s ease-out}
 .reveal.visible{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+
+/* ── Placeholder-bilder ── */
+.ph{
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.5rem;
+  border:2px dashed var(--taupe);border-radius:14px;background:var(--cream-w);
+  color:var(--charcoal-s);font-family:var(--font-b);overflow:hidden;position:relative;
+}
+.ph-label{font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;opacity:.55}
+.ph-desc{font-size:.82rem;opacity:.45;text-align:center;max-width:220px;line-height:1.4}
+.ph-icon{opacity:.25}
+
 /* Nav */
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--taupe)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;padding-top:1rem;padding-bottom:1rem}
 .logo{font-family:var(--font-d);font-size:1.65rem;font-weight:700;color:var(--charcoal);text-decoration:none;letter-spacing:-.02em}
+.logo-img{height:32px;width:auto}
 .nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--burnt);color:var(--white);font-family:var(--font-b);font-weight:500;font-size:.9rem;padding:.6rem 1.25rem;border-radius:8px;border:none;cursor:pointer;text-decoration:none;transition:all .25s}
 .nav-cta:hover{background:var(--burnt-l);transform:translateY(-1px);box-shadow:0 4px 12px rgba(217,119,6,.2)}
+
 /* Hero */
 .hero{position:relative;padding:5rem 0 6rem;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-40%;right:-15%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(45,95,79,.06) 0%,transparent 70%);pointer-events:none}
-.hero-content{position:relative;max-width:720px}
+.hero-grid{position:relative;display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:768px){.hero-grid{grid-template-columns:1fr 1fr;gap:3.5rem}}
+.hero-content{position:relative}
 .hero-tag{display:inline-block;font-size:.85rem;font-weight:500;color:var(--sage);background:rgba(45,95,79,.08);padding:.4rem 1rem;border-radius:100px;margin-bottom:1.5rem;letter-spacing:.02em}
 .hero h1{font-family:var(--font-d);font-size:clamp(2.4rem,5.5vw,3.8rem);font-weight:800;color:var(--sage-d);line-height:1.12;letter-spacing:-.025em;margin-bottom:1.5rem}
 .hero h1 em{font-style:normal;color:var(--burnt)}
@@ -53,6 +75,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .hero-cta{display:inline-flex;align-items:center;gap:.6rem;background:var(--burnt);color:var(--white);font-family:var(--font-b);font-weight:600;font-size:1rem;padding:.85rem 1.75rem;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:all .25s;box-shadow:0 2px 8px rgba(217,119,6,.2)}
 .hero-cta:hover{background:var(--burnt-l);transform:translateY(-2px);box-shadow:0 6px 20px rgba(217,119,6,.25)}
 .hero-cta svg{transition:transform .25s}.hero-cta:hover svg{transform:translateX(3px)}
+.hero-visual{display:none}
+@media(min-width:768px){.hero-visual{display:flex;justify-content:center;align-items:center}}
+.hero-visual img{width:100%;border-radius:14px;box-shadow:0 8px 40px rgba(30,69,56,.12);max-width:480px;aspect-ratio:4/3}
+.hero-visual .ph{width:100%;aspect-ratio:4/3;max-width:480px}
+
 /* Trust gap */
 .trustgap{padding:5.5rem 0;background:var(--white)}
 .trustgap-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
@@ -65,12 +92,13 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .gap-card:hover{border-color:var(--sage);box-shadow:0 2px 12px rgba(45,95,79,.06)}
 .gap-icon{flex-shrink:0;width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center}
 .gap-icon svg{width:20px;height:20px;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;fill:none}
-.gap-icon.send{background:rgba(45,95,79,.1)}.gap-icon.send svg{stroke:var(--sage)}
-.gap-icon.sign{background:rgba(45,95,79,.08)}.gap-icon.sign svg{stroke:var(--sage-d)}
-.gap-icon.risk{background:rgba(220,38,38,.06)}.gap-icon.risk svg{stroke:#b91c1c}
+.gap-icon.send{background:rgba(34,197,94,.1)}.gap-icon.send svg{stroke:#22c55e}
+.gap-icon.sign{background:rgba(217,119,6,.1)}.gap-icon.sign svg{stroke:var(--burnt)}
+.gap-icon.risk{background:rgba(220,38,38,.1)}.gap-icon.risk svg{stroke:#dc2626}
 .gap-card h4{font-family:var(--font-d);font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:.25rem}
 .gap-card p{font-size:.9rem;color:var(--charcoal-s);line-height:1.6}
 .trustgap-visual{display:flex;flex-direction:column;gap:1.25rem}
+
 /* Stats */
 .stats{padding:4.5rem 0;background:var(--sage-d);color:var(--cream)}
 .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem 1.5rem}
@@ -79,6 +107,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .stat-number{font-family:var(--font-d);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--burnt-l);line-height:1.2;margin-bottom:.4rem}
 .stat-label{font-size:.88rem;color:rgba(248,246,241,.75);line-height:1.5}
 .stat-source{font-size:.72rem;color:rgba(248,246,241,.4);margin-top:.35rem}
+
 /* Diff */
 .diff{padding:5.5rem 0;background:var(--cream)}
 .diff-header{text-align:center;max-width:680px;margin:0 auto 3.5rem}
@@ -86,16 +115,19 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .diff-header p{color:var(--charcoal-s);font-size:1.05rem;line-height:1.7}
 .diff-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
 @media(min-width:768px){.diff-grid{grid-template-columns:repeat(3,1fr)}}
-.diff-card{background:var(--white);border:1px solid var(--taupe);border-radius:14px;padding:2rem;position:relative;transition:all .3s;overflow:hidden}
+.diff-card{background:var(--white);border:1px solid var(--taupe);border-radius:14px;padding:2rem;position:relative;transition:all .3s;overflow:visible}
 .diff-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:14px 14px 0 0;background:var(--sage)}
 .diff-card:hover{border-color:var(--sage)}
-.diff-num{font-family:var(--font-d);font-size:.82rem;font-weight:600;color:var(--burnt);margin-bottom:.75rem;letter-spacing:.05em}
+.diff-card .ph{width:100%;height:140px;margin-bottom:1.25rem;border-radius:10px}
+.diff-num{font-family:var(--font-d);font-size:.82rem;font-weight:600;color:var(--burnt);margin-bottom:.75rem;letter-spacing:.05em;display:block}
 .diff-card h3{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:var(--sage-d);margin-bottom:.75rem;line-height:1.3}
 .diff-card p{font-size:.92rem;color:var(--charcoal-s);line-height:1.7}
+
 /* Addon */
 .addon{padding:4rem 0;background:var(--cream-w);border-top:1px solid var(--taupe);border-bottom:1px solid var(--taupe)}
 .addon-inner{max-width:720px;margin:0 auto;text-align:center}
 .addon p{font-family:var(--font-d);font-size:clamp(1.05rem,2vw,1.3rem);font-weight:500;color:var(--sage-d);line-height:1.55}
+
 /* Use cases */
 .usecases{padding:5.5rem 0;background:var(--cream)}
 .usecases-header{text-align:center;max-width:640px;margin:0 auto 3rem}
@@ -105,9 +137,12 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 @media(min-width:768px){.usecase-grid{grid-template-columns:repeat(3,1fr)}}
 .usecase-card{background:var(--white);border:1px solid var(--taupe);border-radius:12px;padding:1.5rem;transition:all .3s}
 .usecase-card:hover{border-color:var(--sage);transform:translateY(-2px);box-shadow:0 4px 16px rgba(45,95,79,.06)}
+.usecase-icon{width:44px;height:44px;border-radius:10px;background:rgba(45,95,79,.07);display:flex;align-items:center;justify-content:center;margin-bottom:.75rem}
+.usecase-icon svg{width:22px;height:22px;stroke:var(--sage);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .usecase-card h4{font-family:var(--font-d);font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:.35rem;line-height:1.3}
 .usecase-card p{font-size:.82rem;color:var(--charcoal-s);line-height:1.6}
-/* Who — interactive tabs */
+
+/* Who — tabs */
 .who{padding:5rem 0;background:var(--white)}
 .who-header{text-align:center;max-width:580px;margin:0 auto 2.5rem}
 .who-header h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:700;color:var(--sage-d);line-height:1.2;letter-spacing:-.02em;margin-bottom:.75rem}
@@ -124,6 +159,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .pnl-tags{display:flex;gap:.4rem;flex-wrap:wrap}
 .pnl-tag{padding:.25rem .65rem;border-radius:60px;font-size:.7rem;font-weight:600;background:rgba(45,95,79,.08);color:var(--sage)}
 .pnl-for{font-size:.8rem;color:var(--charcoal-s);margin-top:1rem;padding-top:.75rem;border-top:1px solid var(--taupe)}.pnl-for strong{color:var(--charcoal)}
+.pnl-img{width:100%;height:160px;margin-bottom:1rem;border-radius:10px}
 .pnl-scene{background:var(--cream-w);padding:2rem 1.75rem;display:flex;flex-direction:column;justify-content:center;border-left:1px solid var(--taupe)}
 .pnl-scene-lab{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--charcoal-s);opacity:.6;margin-bottom:.75rem}
 .ps{display:flex;align-items:flex-start;gap:.5rem;font-size:.84rem;color:var(--charcoal-s);margin-bottom:.5rem;line-height:1.5}.ps:last-child{margin-bottom:0}
@@ -132,17 +168,16 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
   .pnl-card{grid-template-columns:1fr;border-radius:12px}
   .pnl-scene{border-left:none;border-top:1px solid var(--taupe)}
   .pnl-info,.pnl-scene{padding:1.25rem 1rem}
-  .pnl-h{font-size:1rem}
-  .pnl-p{font-size:.85rem}
-  .pnl-tags{gap:.3rem}
-  .pnl-tag{font-size:.65rem;padding:.2rem .5rem}
+  .pnl-h{font-size:1rem}.pnl-p{font-size:.85rem}
+  .pnl-tags{gap:.3rem}.pnl-tag{font-size:.65rem;padding:.2rem .5rem}
   .pnl-for{font-size:.75rem}
   .pnl-scene-lab{font-size:.58rem}
-  .ps{font-size:.8rem;gap:.4rem}
-  .psn{width:16px;height:16px;font-size:.52rem}
+  .ps{font-size:.8rem;gap:.4rem}.psn{width:16px;height:16px;font-size:.52rem}
   .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:.4rem;margin-bottom:1.5rem}
   .tab{font-size:.75rem;padding:.45rem .6rem;text-align:center;white-space:nowrap}
+  .pnl-img{height:120px}
 }
+
 /* Model */
 .model{padding:4rem 0;background:var(--cream-w);border-top:1px solid var(--taupe);border-bottom:1px solid var(--taupe)}
 .model-inner{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;max-width:900px;margin:0 auto}
@@ -156,12 +191,14 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .model-box h4{font-family:var(--font-d);font-size:.95rem;font-weight:600;margin-bottom:.35rem}
 .model-box p{font-size:.82rem;opacity:.8;line-height:1.5}
 .model-arrow{flex-shrink:0;width:48px;display:flex;align-items:center;justify-content:center;color:var(--burnt);font-size:1.4rem}
+
 /* CTA */
 .cta-section{padding:5.5rem 0;background:var(--sage-d);color:var(--cream);position:relative;overflow:hidden}
 .cta-section::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.04) 0%,transparent 70%)}
 .cta-inner{position:relative;max-width:680px;margin:0 auto;text-align:center}
 .cta-section h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;color:var(--cream);line-height:1.2;letter-spacing:-.02em;margin-bottom:1rem}
 .cta-text{font-size:1.05rem;color:rgba(248,246,241,.75);line-height:1.7;margin-bottom:2rem}
+
 /* MailerLite overrides */
 #mlb2-33564892.ml-form-embedContainer,
 #mlb2-33564892 .ml-form-embedWrapper,
@@ -174,9 +211,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 #mlb2-33564892 .ml-form-fieldRow,
 #mlb2-33564892 .ml-field-group,
 #mlb2-33564892 .ml-form-embedSubmit,
-#mlb2-33564892 .ml-form-embedPermissions{
-  width:100%!important;max-width:100%!important;box-sizing:border-box!important;
-}
+#mlb2-33564892 .ml-form-embedPermissions{width:100%!important;max-width:100%!important;box-sizing:border-box!important}
 #mlb2-33564892.ml-form-embedContainer{display:block!important;margin:0 auto!important;position:static!important}
 #mlb2-33564892 .ml-form-embedWrapper{background:transparent!important;border:none!important;border-radius:0!important;padding:0!important;margin:0!important;display:block!important}
 #mlb2-33564892 .ml-form-align-center{display:block!important}
@@ -201,6 +236,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .ml-form-embedSubmitLoad:after{border-color:#fff #fff #fff transparent!important}
 @keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+
 /* Footer */
 footer{padding:2.5rem 0;background:#111;border-top:none}
 .footer-inner{display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center}
@@ -208,20 +244,17 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 .footer-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:var(--white)}
 .footer-text{font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6}
 .footer-text a{color:rgba(255,255,255,.55);text-decoration:none}.footer-text a:hover{color:var(--white)}
+
 /* Responsive */
 @media(max-width:767px){
   .hero{padding:3.5rem 0 4rem}
   .hero h1{font-size:clamp(2rem,7vw,2.6rem)}
   .hero-cta{width:100%;justify-content:center}
   .trustgap,.diff,.usecases,.who{padding:3.5rem 0}
-  .stats{padding:3rem 0}
-  .cta-section{padding:4rem 0}
-  .addon{padding:2.5rem 0}
-  .model{padding:2.5rem 0}
+  .stats{padding:3rem 0}.cta-section{padding:4rem 0}
+  .addon{padding:2.5rem 0}.model{padding:2.5rem 0}
   .usecase-grid{grid-template-columns:1fr 1fr;gap:.75rem}
-  .usecase-card{padding:1.1rem}
-  .usecase-card h4{font-size:.9rem}
-  .usecase-card p{font-size:.78rem}
+  .usecase-card{padding:1.1rem}.usecase-card h4{font-size:.9rem}.usecase-card p{font-size:.78rem}
   .model-boxes{flex-direction:column;width:100%}
   .model-box{width:100%;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center}
   .model-arrow{transform:rotate(90deg)}
@@ -229,27 +262,35 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 </style>
 </head>
 <body>
+
+<!-- ═══ NAV ═══ -->
 <nav>
 <div class="container nav-inner">
+<!-- PLACEHOLDER: Bytt til <img src="logo.svg" alt="Aigree" class="logo-img"> -->
 <a href="#" class="logo">aigree</a>
 <a href="#kontakt" class="nav-cta">Ta kontakt</a>
 </div>
 </nav>
-<!-- Hero -->
+
+<!-- ═══ HERO ═══ -->
 <section class="hero">
 <div class="container">
+<div class="hero-grid">
 <div class="hero-content">
 <span class="hero-tag fade-up">Forståelsesinfrastruktur for arbeidslivet</span>
 <h1 class="fade-up-d1">Sendt er ikke det samme som <em>forstått.</em></h1>
 <p class="hero-sub fade-up-d2">Tenk om du visste — ikke bare håpet — at alle ansatte faktisk har forstått det som ble sendt ut. Aigree tilpasser informasjonen til den som leser, bekrefter at den ble forstått, og gir deg oversikten du trenger.</p>
-<a href="#kontakt" class="hero-cta fade-up-d3">
-Ta kontakt
-<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-</a>
+<a href="#kontakt" class="hero-cta fade-up-d3">Ta kontakt <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+</div>
+<!-- Hero-bilde -->
+<div class="hero-visual fade-up-d2">
+<img src="images/final/hero-industrial-onboarding.jpg" alt="Onboarding og sikkerhetsgjennomgang i et industrielt miljø" style="width:100%;max-width:480px;border-radius:14px;box-shadow:0 8px 40px rgba(30,69,56,.12);">
+</div>
 </div>
 </div>
 </section>
-<!-- Trust Gap -->
+
+<!-- ═══ TRUST GAP ═══ -->
 <section class="trustgap">
 <div class="container">
 <div class="trustgap-grid">
@@ -261,31 +302,23 @@ Ta kontakt
 </div>
 <div class="trustgap-visual">
 <div class="gap-card reveal reveal-d1">
-<div class="gap-icon send"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
-<div>
-<h4>Informasjonen sendes ut</h4>
-<p>Organisasjonen sender viktige dokumenter via e-post, PDF eller intranett. Oppgaven føles gjort — men det er bare halve jobben.</p>
-</div>
+<div class="gap-icon send" style="color:#E67E22;"><svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+<div><h4>Informasjonen sendes ut</h4><p>Organisasjonen sender viktige dokumenter via e-post, PDF eller intranett. Oppgaven føles gjort — men det er bare halve jobben.</p></div>
 </div>
 <div class="gap-card reveal reveal-d2">
-<div class="gap-icon sign"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-<div>
-<h4>Folk signerer uten å ha forstått</h4>
-<p>Ansatte klikker «godkjent» eller signerer — uten at de egentlig forstår innholdet. Få tør å spørre, fordi det oppleves som pinlig å innrømme.</p>
-</div>
+<div class="gap-icon sign" style="color:#E67E22;"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+<div><h4>Folk signerer uten å ha forstått</h4><p>Ansatte klikker «godkjent» eller signerer — uten at de egentlig forstår innholdet. Få tør å spørre, fordi det oppleves som pinlig å innrømme.</p></div>
 </div>
 <div class="gap-card reveal reveal-d3">
-<div class="gap-icon risk"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-<div>
-<h4>Risikoen forblir usynlig</h4>
-<p>Det fører til feil, ulykker, konflikter og lovbrudd. Ingen vet at forståelsen manglet — før det allerede har fått konsekvenser.</p>
-</div>
+<div class="gap-icon risk" style="color:#E74C3C;"><svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+<div><h4>Risikoen forblir usynlig</h4><p>Det fører til feil, ulykker, konflikter og lovbrudd. Ingen vet at forståelsen manglet — før det allerede har fått konsekvenser.</p></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<!-- Stats -->
+
+<!-- ═══ STATS ═══ -->
 <section class="stats">
 <div class="container">
 <div class="stats-grid">
@@ -296,7 +329,8 @@ Ta kontakt
 </div>
 </div>
 </section>
-<!-- Diff -->
+
+<!-- ═══ DIFF ═══ -->
 <section class="diff" id="slik-fungerer-det">
 <div class="container">
 <div class="diff-header reveal">
@@ -304,13 +338,20 @@ Ta kontakt
 <p>Andre systemer sender informasjon. Aigree sørger for at den faktisk blir forstått — og gir deg dokumentasjon på at det skjedde.</p>
 </div>
 <div class="diff-grid">
-<div class="diff-card reveal"><div class="diff-num">01</div><h3>Tilpasset den som leser</h3><p>AI tilpasser innholdet til mottakerens språk og lesenivå. Ikke bare forenklet — forklart. Slik at den som leser faktisk forstår det som står der.</p></div>
-<div class="diff-card reveal reveal-d1"><div class="diff-num">02</div><h3>Den ansatte bekrefter lest og forstått</h3><p>Det handler ikke bare om å åpne et dokument. Den ansatte går gjennom innholdet, får forklaring der det trengs, og bekrefter at de har forstått.</p></div>
-<div class="diff-card reveal reveal-d2"><div class="diff-num">03</div><h3>Oversikt for arbeidsgiver</h3><p>Du ser hvem som har lest og forstått hva. En samlet oversikt som gir trygghet — og dokumentasjon når du trenger det.</p></div>
+<div class="diff-card reveal">
+<div class="diff-num">01</div><h3>Tilpasset den som leser</h3><p>AI tilpasser innholdet til mottakerens språk og lesenivå. Ikke bare forenklet — forklart. Slik at den som leser faktisk forstår det som står der.</p>
+</div>
+<div class="diff-card reveal reveal-d1">
+<div class="diff-num">02</div><h3>Den ansatte bekrefter lest og forstått</h3><p>Det handler ikke bare om å åpne et dokument. Den ansatte går gjennom innholdet, får forklaring der det trengs, og bekrefter at de har forstått.</p>
+</div>
+<div class="diff-card reveal reveal-d2">
+<div class="diff-num">03</div><h3>Oversikt for arbeidsgiver</h3><p>Du ser hvem som har lest og forstått hva. En samlet oversikt som gir trygghet — og dokumentasjon når du trenger det.</p>
+</div>
 </div>
 </div>
 </section>
-<!-- Addon -->
+
+<!-- ═══ ADDON ═══ -->
 <section class="addon reveal">
 <div class="container">
 <div class="addon-inner">
@@ -318,7 +359,8 @@ Ta kontakt
 </div>
 </div>
 </section>
-<!-- Use cases -->
+
+<!-- ═══ USE CASES ═══ -->
 <section class="usecases">
 <div class="container">
 <div class="usecases-header reveal">
@@ -326,16 +368,29 @@ Ta kontakt
 <p>Aigree er et skall. Byggeklossene er de samme — innholdet er ditt. Fra det formelle til det helt hverdagslige.</p>
 </div>
 <div class="usecase-grid">
-<div class="usecase-card reveal"><h4>Onboarding</h4><p>Nye ansatte får alt de trenger på ett sted — forklart slik at det faktisk blir forstått.</p></div>
-<div class="usecase-card reveal reveal-d1"><h4>Nye rutiner og prosedyrer</h4><p>Når noe endres, kan du sikre at alle berørte faktisk har fått det med seg.</p></div>
-<div class="usecase-card reveal reveal-d2"><h4>HMS og sikkerhet</h4><p>Når sikkerhetsrutiner oppdateres, kan du dokumentere at alle har forstått endringene.</p></div>
-<div class="usecase-card reveal"><h4>Det praktiske</h4><p>Wifi-passord, kaffeavtale, parkeringsregler, alarmsystem — det folk trenger å vite fra dag én.</p></div>
-<div class="usecase-card reveal reveal-d1"><h4>Sesongarbeid</h4><p>Mange nye folk på kort tid, med ulik bakgrunn og ulike språk. Aigree gjør det skalerbart.</p></div>
-<div class="usecase-card reveal reveal-d2"><h4>Rettigheter og rådgivning</h4><p>Hjelp folk å forstå egne rettigheter, vedtak og kontrakter — slik at de vet hvordan ting foregår og kan ta informerte valg.</p></div>
+<div class="usecase-card reveal">
+<img src="images/final/onboarding.jpg" alt="Onboarding" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<h4>Onboarding</h4><p>Nye ansatte får alt de trenger på ett sted — forklart slik at det faktisk blir forstått.</p></div>
+<div class="usecase-card reveal reveal-d1">
+<img src="images/final/procedures.jpg" alt="Nye rutiner" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<h4>Nye rutiner og prosedyrer</h4><p>Når noe endres, kan du sikre at alle berørte faktisk har fått det med seg.</p></div>
+<div class="usecase-card reveal reveal-d2">
+<img src="images/final/hms.jpg" alt="HMS og sikkerhet" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<h4>HMS og sikkerhet</h4><p>Når sikkerhetsrutiner oppdateres, kan du dokumentere at alle har forstått endringene.</p></div>
+<div class="usecase-card reveal">
+<img src="images/final/practical.jpg" alt="Det praktiske" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<h4>Det praktiske</h4><p>Wifi-passord, kaffeavtale, parkeringsregler, alarmsystem — det folk trenger å vite fra dag én.</p></div>
+<div class="usecase-card reveal reveal-d1">
+<img src="images/final/seasonal.jpg" alt="Sesongarbeid" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<h4>Sesongarbeid</h4><p>Mange nye folk på kort tid, med ulik bakgrunn og ulike språk. Aigree gjør det skalerbart.</p></div>
+<div class="usecase-card reveal reveal-d2">
+<img src="images/final/rights.jpg" alt="Rettigheter og rådgivning" style="width:100%;height:120px;object-fit:cover;border-radius:8px;margin-bottom:1rem;">
+<h4>Rettigheter og rådgivning</h4><p>Hjelp folk å forstå egne rettigheter, vedtak og kontrakter — slik at de vet hvordan ting foregår og kan ta informerte valg.</p></div>
 </div>
 </div>
 </section>
-<!-- Who — interactive tabs -->
+
+<!-- ═══ WHO — TABS ═══ -->
 <section class="who" id="hvem-bruker-det">
 <div class="container">
 <div class="who-header reveal">
@@ -350,33 +405,59 @@ Ta kontakt
 <button class="tab" data-p="bransje">Bransjeorganisasjon</button>
 <button class="tab" data-p="festival">Festival</button>
 </div>
+
+<!-- Havbruk -->
 <div id="p-oppdrett" class="pnl on"><div class="pnl-card">
-<div class="pnl-info"><div class="pnl-h">Sesongbasert, flerspråklig, strengt regulert</div><p class="pnl-p">Oppdrett har sesongtopper, folk fra flere land og strenge HMS-krav. Aigree samler alt den ansatte trenger — på det språket de faktisk forstår.</p><div class="pnl-tags"><span class="pnl-tag">Flerspråklig</span><span class="pnl-tag">HMS</span><span class="pnl-tag">Sesong</span><span class="pnl-tag">Oversikt</span></div><p class="pnl-for">For: <strong>Oppdrett, sjømat, havbruk</strong></p></div>
+<div class="pnl-info">
+<img src="images/final/tab-havbruk.jpg" alt="Havbruk — sesongbasert, flerspråklig, strengt regulert" class="pnl-img" style="object-fit:cover;">
+<div class="pnl-h">Sesongbasert, flerspråklig, strengt regulert</div><p class="pnl-p">Oppdrett har sesongtopper, folk fra flere land og strenge HMS-krav. Aigree samler alt den ansatte trenger — på det språket de faktisk forstår.</p><div class="pnl-tags"><span class="pnl-tag">Flerspråklig</span><span class="pnl-tag">HMS</span><span class="pnl-tag">Sesong</span><span class="pnl-tag">Oversikt</span></div><p class="pnl-for">For: <strong>Oppdrett, sjømat, havbruk</strong></p></div>
 <div class="pnl-scene"><div class="pnl-scene-lab">Livssyklus: Sesongarbeider</div><div class="ps"><span class="psn">1</span><span>Sesongstart — arbeidsavtale og HMS tilpasset den ansattes språk</span></div><div class="ps"><span class="psn">2</span><span>Ny prosedyre midt i sesongen — sendes ut, forklares, bekreftes</span></div><div class="ps"><span class="psn">3</span><span>Sesongslutt — sluttoppgjør forklart, dokumenter lagret</span></div><div class="ps"><span class="psn">4</span><span>Neste sesong — alt ligger klart, bare det nye legges til</span></div></div>
 </div></div>
+
+<!-- Industri -->
 <div id="p-industri" class="pnl"><div class="pnl-card">
-<div class="pnl-info"><div class="pnl-h">Prosedyrer som faktisk når frem</div><p class="pnl-p">Industri har sammensatte arbeidsstyrker og hyppige oppdateringer. Aigree sørger for at alle forstår — ikke bare de som leser norsk flytende.</p><div class="pnl-tags"><span class="pnl-tag">Prosedyrer</span><span class="pnl-tag">Flerspråklig</span><span class="pnl-tag">HMS</span><span class="pnl-tag">Oversikt</span></div><p class="pnl-for">For: <strong>Industri, produksjon, prosessbedrifter</strong></p></div>
+<div class="pnl-info">
+<img src="images/final/tab-industri.jpg" alt="Industri — prosedyrer som faktisk når frem" class="pnl-img" style="object-fit:cover;">
+<div class="pnl-h">Prosedyrer som faktisk når frem</div><p class="pnl-p">Industri har sammensatte arbeidsstyrker og hyppige oppdateringer. Aigree sørger for at alle forstår — ikke bare de som leser norsk flytende.</p><div class="pnl-tags"><span class="pnl-tag">Prosedyrer</span><span class="pnl-tag">Flerspråklig</span><span class="pnl-tag">HMS</span><span class="pnl-tag">Oversikt</span></div><p class="pnl-for">For: <strong>Industri, produksjon, prosessbedrifter</strong></p></div>
 <div class="pnl-scene"><div class="pnl-scene-lab">Livssyklus: Ny operatør</div><div class="ps"><span class="psn">1</span><span>Ny ansatt mottar arbeidsavtale, HMS og sikkerhetsprosedyrer</span></div><div class="ps"><span class="psn">2</span><span>AI forklarer innholdet — tilpasset den som leser</span></div><div class="ps"><span class="psn">3</span><span>Oppdatert prosedyre underveis — sendes ut, forklares, bekreftes</span></div><div class="ps"><span class="psn">4</span><span>Ledelsen ser hvem som har lest og forstått hva</span></div></div>
 </div></div>
+
+<!-- Kommune -->
 <div id="p-kommune" class="pnl"><div class="pnl-card">
-<div class="pnl-info"><div class="pnl-h">Samlet og forståelig — ikke bare sendt</div><p class="pnl-p">Kommuner sender ut mye informasjon digitalt, men det betyr ikke at den blir forstått. Aigree samler kontrakt, håndbok, rutiner og avdelingsinfo — og sikrer at folk faktisk forstår det de får.</p><div class="pnl-tags"><span class="pnl-tag">Kommune</span><span class="pnl-tag">Helseforetak</span><span class="pnl-tag">Avdelingsstruktur</span></div><p class="pnl-for">For: <strong>Kommuner, helseforetak, offentlige virksomheter</strong></p></div>
+<div class="pnl-info">
+<img src="images/final/tab-kommune.jpg" alt="Kommune — samlet og forståelig" class="pnl-img" style="object-fit:cover;">
+<div class="pnl-h">Samlet og forståelig — ikke bare sendt</div><p class="pnl-p">Kommuner sender ut mye informasjon digitalt, men det betyr ikke at den blir forstått. Aigree samler kontrakt, håndbok, rutiner og avdelingsinfo — og sikrer at folk faktisk forstår det de får.</p><div class="pnl-tags"><span class="pnl-tag">Kommune</span><span class="pnl-tag">Helseforetak</span><span class="pnl-tag">Avdelingsstruktur</span></div><p class="pnl-for">For: <strong>Kommuner, helseforetak, offentlige virksomheter</strong></p></div>
 <div class="pnl-scene"><div class="pnl-scene-lab">Livssyklus: Ny i kommunen</div><div class="ps"><span class="psn">1</span><span>Felles innhold — personalpolitikk, retningslinjer</span></div><div class="ps"><span class="psn">2</span><span>Avdelingen legger til rutiner, kontaktpersoner, spesifikk info</span></div><div class="ps"><span class="psn">3</span><span>Ny ansatt får alt samlet — tilpasset den som leser</span></div><div class="ps"><span class="psn">4</span><span>Ledere ser hvem som har lest og forstått hva</span></div></div>
 </div></div>
+
+<!-- Ideell -->
 <div id="p-ideell" class="pnl"><div class="pnl-card">
-<div class="pnl-info"><div class="pnl-h">Gjør rettigheter og dokumenter forståelige</div><p class="pnl-p">Frivillige og ideelle organisasjoner hjelper folk som trenger å forstå kontrakter, rettigheter og vedtak. Aigree gir rådgiverne et verktøy — og brukerne et sted å samle og forstå dokumentene sine, slik at de vet hvordan ting foregår.</p><div class="pnl-tags"><span class="pnl-tag">Flerspråklig</span><span class="pnl-tag">Rettigheter</span><span class="pnl-tag">Innsikt</span></div><p class="pnl-for">For: <strong>Frivillige organisasjoner, rettshjelp, rådgivning</strong></p></div>
+<div class="pnl-info">
+<img src="images/final/tab-frivillig.jpg" alt="Frivillig og ideell — gjør rettigheter og dokumenter forståelige" class="pnl-img" style="object-fit:cover;">
+<div class="pnl-h">Gjør rettigheter og dokumenter forståelige</div><p class="pnl-p">Frivillige og ideelle organisasjoner hjelper folk som trenger å forstå kontrakter, rettigheter og vedtak. Aigree gir rådgiverne et verktøy — og brukerne et sted å samle og forstå dokumentene sine, slik at de vet hvordan ting foregår.</p><div class="pnl-tags"><span class="pnl-tag">Flerspråklig</span><span class="pnl-tag">Rettigheter</span><span class="pnl-tag">Innsikt</span></div><p class="pnl-for">For: <strong>Frivillige organisasjoner, rettshjelp, rådgivning</strong></p></div>
 <div class="pnl-scene"><div class="pnl-scene-lab">Livssyklus: Person som trenger hjelp</div><div class="ps"><span class="psn">1</span><span>Organisasjonen legger inn rettigheter, regelverk og veiledning</span></div><div class="ps"><span class="psn">2</span><span>Bruker velger språk og leser om sine rettigheter</span></div><div class="ps"><span class="psn">3</span><span>Bruker laster opp kontrakter og brev — og får gjennomgang</span></div><div class="ps"><span class="psn">4</span><span>Alt samlet i eget dokumentvelv</span></div></div>
 </div></div>
+
+<!-- Bransje -->
 <div id="p-bransje" class="pnl"><div class="pnl-card">
-<div class="pnl-info"><div class="pnl-h">Gi verdi til medlemmene — med din branding</div><p class="pnl-p">Tilby Aigree med organisasjonens egen merkevare. Dere legger inn bransjeinnhold, og hver bedrift legger til sitt eget.</p><div class="pnl-tags"><span class="pnl-tag">Whitelabel</span><span class="pnl-tag">Medlemsverdi</span><span class="pnl-tag">Bransjeinnhold</span></div><p class="pnl-for">For: <strong>Bransjeorganisasjoner, forbund, fagforeninger</strong></p></div>
+<div class="pnl-info">
+<img src="images/final/tab-bransje.jpg" alt="Bransjeorganisasjon — gi verdi til medlemmene" class="pnl-img" style="object-fit:cover;">
+<div class="pnl-h">Gi verdi til medlemmene — med din branding</div><p class="pnl-p">Tilby Aigree med organisasjonens egen merkevare. Dere legger inn bransjeinnhold, og hver bedrift legger til sitt eget.</p><div class="pnl-tags"><span class="pnl-tag">Whitelabel</span><span class="pnl-tag">Medlemsverdi</span><span class="pnl-tag">Bransjeinnhold</span></div><p class="pnl-for">For: <strong>Bransjeorganisasjoner, forbund, fagforeninger</strong></p></div>
 <div class="pnl-scene"><div class="pnl-scene-lab">Livssyklus: Bransjeorganisasjon</div><div class="ps"><span class="psn">1</span><span>Organisasjonen legger inn felles bransjeinnhold</span></div><div class="ps"><span class="psn">2</span><span>Medlemsbedrifter legger til eget innhold</span></div><div class="ps"><span class="psn">3</span><span>Ansatte ser begge nivåer — tilpasset den som leser</span></div><div class="ps"><span class="psn">4</span><span>Oversikt på tvers av medlemmer</span></div></div>
 </div></div>
+
+<!-- Festival -->
 <div id="p-festival" class="pnl"><div class="pnl-card">
-<div class="pnl-info"><div class="pnl-h">180 folk — sikkerhetsendring på 10 minutter</div><p class="pnl-p">Festivaler trenger rask formidling til mange folk på kort tid. Aigree samler alt og lar dere oppdatere underveis — med bekreftelse på at folk har fått det med seg.</p><div class="pnl-tags"><span class="pnl-tag">Rask formidling</span><span class="pnl-tag">NDA</span><span class="pnl-tag">Sertifikater</span></div><p class="pnl-for">For: <strong>Festivaler, events, organisasjoner med frivillige</strong></p></div>
+<div class="pnl-info">
+<img src="images/final/tab-festival.jpg" alt="Festival crew som koordinerer og rigger utendørs" class="pnl-img" style="object-fit:cover;">
+<div class="pnl-h">180 folk — sikkerhetsendring på 10 minutter</div><p class="pnl-p">Festivaler trenger rask formidling til mange folk på kort tid. Aigree samler alt og lar dere oppdatere underveis — med bekreftelse på at folk har fått det med seg.</p><div class="pnl-tags"><span class="pnl-tag">Rask formidling</span><span class="pnl-tag">NDA</span><span class="pnl-tag">Sertifikater</span></div><p class="pnl-for">For: <strong>Festivaler, events, organisasjoner med frivillige</strong></p></div>
 <div class="pnl-scene"><div class="pnl-scene-lab">Livssyklus: Frivillig</div><div class="ps"><span class="psn">1</span><span>180 frivillige klargjøres — festivalinfo, sikkerhet, rutiner</span></div><div class="ps"><span class="psn">2</span><span>Sikkerhetsendring underveis — ute hos alle på 10 minutter</span></div><div class="ps"><span class="psn">3</span><span>Sertifikater lagret etter festivalen</span></div><div class="ps"><span class="psn">4</span><span>Neste år — halvparten kommer tilbake, alt ligger klart</span></div></div>
 </div></div>
+
 </div>
 </section>
-<!-- Model -->
+
+<!-- ═══ MODEL ═══ -->
 <section class="model">
 <div class="container">
 <div class="model-inner">
@@ -384,22 +465,91 @@ Ta kontakt
 <h2>Organisasjonen betaler. Den ansatte bruker.</h2>
 <p class="model-text">Organisasjoner kjøper tilgang og legger inn innholdet sitt. Ansatte mottar, leser og bekrefter — uavhengig av hvor mange arbeidsgivere som kobler seg på.</p>
 </div>
-<div class="model-boxes reveal reveal-d1">
-<div class="model-box org"><h4>Organisasjonen</h4><p>Legger inn, tilpasser og følger opp</p></div>
-<div class="model-arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
-<div class="model-box emp"><h4>Den ansatte</h4><p>Mottar, forstår og bekrefter</p></div>
+<style>
+.model-boxes-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto;
+}
+@media (max-width: 767px) {
+  .model-boxes-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+}
+.model-boxes-grid .model-box {
+  background: var(--sage-d);
+  color: var(--cream);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  aspect-ratio: 1 / 1;
+  padding: 2rem;
+  min-height: 250px;
+}
+.model-boxes-grid .model-box h4 {
+  color: var(--cream);
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+  margin: 0;
+}
+.model-boxes-grid .model-box p {
+  color: var(--cream);
+  opacity: 0.9;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0.75rem 0 0 0;
+}
+.model-boxes-grid .model-arrow {
+  color: var(--burnt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.model-boxes-grid .model-arrow svg {
+  animation: arrowPulse 2s ease-in-out infinite;
+  width: 50px;
+  height: 50px;
+}
+@media (max-width: 767px) {
+  .model-boxes-grid .model-arrow svg {
+    transform: rotate(90deg);
+  }
+}
+@keyframes arrowPulse {
+  0%, 100% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(6px); opacity: 0.6; }
+}
+@media (max-width: 767px) {
+  @keyframes arrowPulse {
+    0%, 100% { transform: translateY(0) rotate(90deg); opacity: 1; }
+    50% { transform: translateY(6px) rotate(90deg); opacity: 0.6; }
+  }
+}
+</style>
+<div class="model-boxes-grid reveal reveal-d1">
+<div class="model-box"><h4>Organisasjonen</h4><p>Legger inn, tilpasser og følger opp</p></div>
+<div class="model-arrow"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+<div class="model-box"><h4>Den ansatte</h4><p>Mottar, forstår og bekrefter</p></div>
 </div>
 </div>
 </div>
 </section>
-<!-- CTA -->
+
+<!-- ═══ CTA ═══ -->
 <section class="cta-section" id="kontakt">
 <div class="container">
 <div class="cta-inner">
 <h2 class="reveal">Nysgjerrig på hvordan Aigree kan brukes hos dere?</h2>
 <p class="cta-text reveal reveal-d1">Ta kontakt, så viser vi deg hvordan Aigree kan tilpasses akkurat din organisasjon.</p>
 <div class="reveal reveal-d2">
-<!-- MailerLite embed -->
 <div id="mlb2-33564892" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-33564892">
 <div class="ml-form-align-center">
 <div class="ml-form-embedWrapper embedForm">
@@ -407,75 +557,43 @@ Ta kontakt
 <div class="ml-form-embedContent" style="margin-bottom:0px;"></div>
 <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1590872/forms/171515800372381342/subscribe" data-code="" method="post" target="_blank">
 <div class="ml-form-formContent">
-<div class="ml-form-fieldRow">
-<div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-<input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="E-post *" autocomplete="email">
+<div class="ml-form-fieldRow"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="E-post *" autocomplete="email"></div></div>
+<div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name ml-validate-required"><input aria-label="name" aria-required="true" type="text" class="form-control" data-inputmask="" name="fields[name]" placeholder="Navn *" autocomplete="given-name"></div></div>
+<div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-company ml-validate-required"><input aria-label="company" aria-required="true" type="text" class="form-control" data-inputmask="" name="fields[company]" placeholder="Organisasjon / bedrift *" autocomplete=""></div></div>
 </div>
-</div>
-<div class="ml-form-fieldRow">
-<div class="ml-field-group ml-field-name ml-validate-required">
-<input aria-label="name" aria-required="true" type="text" class="form-control" data-inputmask="" name="fields[name]" placeholder="Navn *" autocomplete="given-name">
-</div>
-</div>
-<div class="ml-form-fieldRow ml-last-item">
-<div class="ml-field-group ml-field-company ml-validate-required">
-<input aria-label="company" aria-required="true" type="text" class="form-control" data-inputmask="" name="fields[company]" placeholder="Organisasjon / bedrift *" autocomplete="">
-</div>
-</div>
-</div>
-<div class="ml-form-embedPermissions" style="">
-<div class="ml-form-embedPermissionsContent default privacy-policy">
-<p><em>Vi lagrer kun informasjonen du oppgir for å følge opp din henvendelse. Vi sender ikke markedsføring. Du kan når som helst be om innsyn eller sletting.</em></p>
-</div>
-</div>
+<div class="ml-form-embedPermissions"><div class="ml-form-embedPermissionsContent default privacy-policy"><p><em>Vi lagrer kun informasjonen du oppgir for å følge opp din henvendelse. Vi sender ikke markedsføring. Du kan når som helst be om innsyn eller sletting.</em></p></div></div>
 <input type="hidden" name="ml-submit" value="1">
 <div class="ml-form-embedSubmit">
 <button type="submit" class="primary">Send</button>
-<button disabled="disabled" style="display:none;" type="button" class="loading">
-<div class="ml-form-embedSubmitLoad"></div>
-<span class="sr-only">Loading...</span>
-</button>
+<button disabled="disabled" style="display:none;" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button>
 </div>
 <input type="hidden" name="anticsrf" value="true">
 </form>
 </div>
-<div class="ml-form-successBody row-success" style="display:none">
-<div class="ml-form-successContent">
-<h4>Tusen takk!</h4>
-<p>Du hører fra oss i løpet av et par virkedager.</p>
+<div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>Tusen takk!</h4><p>Du hører fra oss i løpet av et par virkedager.</p></div></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-<!-- /MailerLite embed -->
 </div>
 </div>
 </div>
 </section>
-<!-- Footer -->
+
+<!-- ═══ FOOTER ═══ -->
 <footer>
 <div class="container footer-inner">
 <div class="footer-logo">aigree</div>
-<div class="footer-text">
-© 2026 Nordic Tide AS · Org.nr. 934 616 561<br>
-<a href="mailto:hello@aigree.app">hello@aigree.app</a>
-</div>
+<div class="footer-text">© 2026 Nordic Tide AS · Org.nr. 934 616 561<br><a href="mailto:hello@aigree.app">hello@aigree.app</a></div>
 </div>
 </footer>
+
 <script>
 (function(){
-// Tabs
 document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var p=this.getAttribute('data-p');document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});this.classList.add('on');document.querySelectorAll('.pnl').forEach(function(x){x.classList.remove('on')});var e=document.getElementById('p-'+p);if(e)e.classList.add('on')})});
-// Scroll reveal
 var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ob.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){ob.observe(el)});
 })();
-function ml_webform_success_33564892(){
-var $=ml_jQuery||jQuery;
-$('.ml-subscribe-form-33564892 .row-success').show();
-$('.ml-subscribe-form-33564892 .row-form').hide();
-}
+function ml_webform_success_33564892(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-33564892 .row-success').show();$('.ml-subscribe-form-33564892 .row-form').hide()}
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b"></script>
 <script>fetch("https://assets.mailerlite.com/jsonp/1590872/forms/171515800372381342/takel")</script>
