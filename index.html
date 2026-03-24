@@ -42,13 +42,6 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .logo{font-family:var(--font-d);font-size:1.65rem;font-weight:700;color:var(--charcoal);text-decoration:none;letter-spacing:-.02em}
 .nav-cta{display:inline-flex;align-items:center;gap:.5rem;background:var(--burnt);color:var(--white);font-family:var(--font-b);font-weight:500;font-size:.9rem;padding:.6rem 1.25rem;border-radius:8px;border:none;cursor:pointer;text-decoration:none;transition:all .25s}
 .nav-cta:hover{background:var(--burnt-l);transform:translateY(-1px);box-shadow:0 4px 12px rgba(217,119,6,.2)}
-.ham{display:none;background:none;border:none;cursor:pointer;width:26px;height:18px;position:relative;z-index:102}
-.ham span{display:block;width:100%;height:1.5px;background:var(--charcoal);position:absolute;left:0;transition:all .3s}
-.ham span:nth-child(1){top:0}.ham span:nth-child(2){top:8px}.ham span:nth-child(3){bottom:0}
-.ham.open span:nth-child(1){top:8px;transform:rotate(45deg)}.ham.open span:nth-child(2){opacity:0}.ham.open span:nth-child(3){bottom:8px;transform:rotate(-45deg)}
-.nav-r{display:flex;align-items:center;gap:8px}
-.nav-a{color:var(--charcoal);text-decoration:none;font-size:.88rem;font-weight:500;padding:7px 14px;border-radius:8px;transition:background .15s}.nav-a:hover{background:rgba(0,0,0,.04)}
-.ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.08);z-index:99}.ov.open{display:block}
 /* Hero */
 .hero{position:relative;padding:5rem 0 6rem;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-40%;right:-15%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(45,95,79,.06) 0%,transparent 70%);pointer-events:none}
@@ -210,12 +203,6 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 .footer-text a{color:rgba(255,255,255,.55);text-decoration:none}.footer-text a:hover{color:var(--white)}
 /* Responsive */
 @media(max-width:767px){
-  .ham{display:block}
-  .nav-r{position:fixed;top:0;right:-100%;width:240px;height:auto;background:rgba(248,246,241,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;justify-content:flex-start;gap:4px;padding:60px 20px 24px;transition:right .3s;box-shadow:-4px 0 24px rgba(0,0,0,.08);z-index:101;border-bottom-left-radius:16px}
-  .nav-r.open{right:0}
-  .nav-a{font-size:.92rem;text-align:left;padding:10px 16px;width:100%;border-radius:8px}
-  .nav-cta{text-align:center;width:100%;justify-content:center;margin-top:4px}
-  .ov.open{display:block}
   .hero{padding:3.5rem 0 4rem}
   .hero h1{font-size:clamp(2rem,7vw,2.6rem)}
   .hero-cta{width:100%;justify-content:center}
@@ -234,13 +221,7 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
 <nav>
 <div class="container nav-inner">
 <a href="#" class="logo">aigree</a>
-<button class="ham" aria-label="Meny"><span></span><span></span><span></span></button>
-<div class="ov"></div>
-<div class="nav-r">
-<a href="#slik-fungerer-det" class="nav-a">Slik fungerer det</a>
-<a href="#hvem-bruker-det" class="nav-a">For hvem</a>
 <a href="#kontakt" class="nav-cta">Ta kontakt</a>
-</div>
 </div>
 </nav>
 <!-- Hero -->
@@ -473,11 +454,6 @@ Ta kontakt
 </footer>
 <script>
 (function(){
-// Hamburger
-var h=document.querySelector('.ham'),r=document.querySelector('.nav-r'),o=document.querySelector('.ov');
-h.addEventListener('click',function(){h.classList.toggle('open');r.classList.toggle('open');o.classList.toggle('open')});
-o.addEventListener('click',function(){h.classList.remove('open');r.classList.remove('open');o.classList.remove('open')});
-r.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){h.classList.remove('open');r.classList.remove('open');o.classList.remove('open')})});
 // Tabs
 document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){var p=this.getAttribute('data-p');document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on')});this.classList.add('on');document.querySelectorAll('.pnl').forEach(function(x){x.classList.remove('on')});var e=document.getElementById('p-'+p);if(e)e.classList.add('on')})});
 // Scroll reveal
