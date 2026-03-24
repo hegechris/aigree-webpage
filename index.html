@@ -518,19 +518,17 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
   width: 50px;
   height: 50px;
 }
-@media (max-width: 767px) {
-  .model-boxes-grid .model-arrow svg {
-    transform: rotate(90deg);
-  }
-}
 @keyframes arrowPulse {
   0%, 100% { transform: translateX(0); opacity: 1; }
   50% { transform: translateX(6px); opacity: 0.6; }
 }
+@keyframes arrowPulseMobile {
+  0%, 100% { transform: rotate(90deg) translateX(0); opacity: 1; }
+  50% { transform: rotate(90deg) translateX(6px); opacity: 0.6; }
+}
 @media (max-width: 767px) {
-  @keyframes arrowPulse {
-    0%, 100% { transform: translateY(0) rotate(90deg); opacity: 1; }
-    50% { transform: translateY(6px) rotate(90deg); opacity: 0.6; }
+  .model-boxes-grid .model-arrow svg {
+    animation: arrowPulseMobile 2s ease-in-out infinite;
   }
 }
 </style>
