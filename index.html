@@ -514,27 +514,36 @@ footer{padding:2.5rem 0;background:#111;border-top:none}
   flex-shrink: 0;
 }
 .model-boxes-grid .model-arrow svg {
-  animation: arrowPulse 2s ease-in-out infinite;
   width: 50px;
   height: 50px;
 }
-@keyframes arrowPulse {
+.model-boxes-grid .model-arrow .arrow-h {
+  display: block;
+  animation: arrowPulseH 2s ease-in-out infinite;
+}
+.model-boxes-grid .model-arrow .arrow-v {
+  display: none;
+  animation: arrowPulseV 2s ease-in-out infinite;
+}
+@keyframes arrowPulseH {
   0%, 100% { transform: translateX(0); opacity: 1; }
   50% { transform: translateX(6px); opacity: 0.6; }
 }
-@keyframes arrowPulseMobile {
-  0%, 100% { transform: rotate(90deg) translateX(0); opacity: 1; }
-  50% { transform: rotate(90deg) translateX(6px); opacity: 0.6; }
+@keyframes arrowPulseV {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.6; }
 }
 @media (max-width: 767px) {
-  .model-boxes-grid .model-arrow svg {
-    animation: arrowPulseMobile 2s ease-in-out infinite;
-  }
+  .model-boxes-grid .model-arrow .arrow-h { display: none; }
+  .model-boxes-grid .model-arrow .arrow-v { display: block; }
 }
 </style>
 <div class="model-boxes-grid reveal reveal-d1">
 <div class="model-box"><h4>Organisasjonen</h4><p>Legger inn, tilpasser og følger opp</p></div>
-<div class="model-arrow"><svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+<div class="model-arrow">
+<svg class="arrow-h" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+<svg class="arrow-v" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m5 12 7 7 7-7"/></svg>
+</div>
 <div class="model-box"><h4>Den ansatte</h4><p>Mottar, forstår og bekrefter</p></div>
 </div>
 </div>
