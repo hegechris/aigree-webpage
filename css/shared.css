@@ -220,11 +220,14 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
 /* Footer */
-footer{padding:1.5rem 0;background:#1E2A2A;border-top:none}
-.footer-inner{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;text-align:center;font-size:.78rem;color:rgba(255,255,255,.4);line-height:2}
-.footer-inner a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .15s}
-.footer-inner a:hover{color:var(--white)}
-.footer-sep{margin:0 .6rem;color:rgba(255,255,255,.2)}
+footer{padding:2rem 0;background:#1E2A2A;border-top:none}
+.footer-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:1rem}
+.footer-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.7)}
+.footer-company{font-size:.78rem;color:rgba(255,255,255,.4)}
+.footer-links{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.4)}
+.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s}
+.footer-links a:hover{color:var(--white)}
+.footer-sep{margin:0 .6rem;color:rgba(255,255,255,.15)}
 
 /* Responsive */
 @media(max-width:767px){
