@@ -17,18 +17,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/shared.css">
 <style>
-/* Om-side spesifikk */
 .om-hero{padding:5rem 0 3rem}
 .om-hero-label{font-size:.7rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--burnt);margin-bottom:1.25rem}
 .om-hero h1{font-family:var(--font-d);font-size:clamp(2rem,4.5vw,3rem);font-weight:700;color:var(--sage-d);line-height:1.15;letter-spacing:-.02em;margin-bottom:1.25rem;max-width:600px}
 .om-hero-intro{font-size:1.1rem;color:var(--charcoal-s);line-height:1.75;max-width:620px}
-
 .story{padding:4rem 0;background:var(--white)}
 .story-inner{max-width:680px}
 .story h2{font-family:var(--font-d);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:1.25rem}
 .story p{font-size:1rem;color:var(--charcoal-s);line-height:1.8;margin-bottom:1.25rem}
 .story p:last-child{margin-bottom:0}
-
 .team{padding:4.5rem 0;background:var(--cream)}
 .team-header{margin-bottom:2.5rem}
 .team-header h2{font-family:var(--font-d);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:.5rem}
@@ -44,7 +41,6 @@
 .person-email{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--sage);text-decoration:none;font-weight:500;transition:color .15s}
 .person-email:hover{color:var(--sage-l)}
 .person-email svg{width:14px;height:14px}
-
 .values{padding:4rem 0;background:var(--cream-w);border-top:1px solid var(--taupe);border-bottom:1px solid var(--taupe)}
 .values-inner{max-width:680px}
 .values h2{font-family:var(--font-d);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:1.5rem}
@@ -52,14 +48,14 @@
 .value-item:last-child{margin-bottom:0}
 .value-item h3{font-size:.95rem;font-weight:600;color:var(--charcoal);margin-bottom:.25rem}
 .value-item p{font-size:.92rem;color:var(--charcoal-s);line-height:1.7}
-
-.om-cta{padding:4rem 0;background:var(--sage-d);text-align:center}
-.om-cta p{font-family:var(--font-d);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:500;color:var(--cream);line-height:1.5;max-width:500px;margin:0 auto 1.5rem}
-
+.motivation{padding:4rem 0;background:var(--white)}
+.motivation-inner{max-width:680px}
+.motivation h2{font-family:var(--font-d);font-size:clamp(1.4rem,2.5vw,1.8rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:1.25rem}
+.motivation p{font-size:1rem;color:var(--charcoal-s);line-height:1.8;margin-bottom:1.25rem}
+.motivation p:last-child{margin-bottom:0}
 @media(max-width:767px){
   .om-hero{padding:3.5rem 0 2.5rem}
-  .story,.team,.values{padding:3rem 0}
-  .om-cta{padding:3rem 0}
+  .story,.team,.values,.motivation{padding:3rem 0}
 }
 </style>
 </head>
@@ -109,10 +105,10 @@
 
 <div class="person reveal">
 <div class="person-photo">HC</div>
-<h3>Hege Christine</h3>
+<h3>Hege Christine Brunsvik</h3>
 <div class="person-role">CEO og medgründer</div>
-<p>Seriegrunder med bakgrunn i digital forretningsutvikling, systemer og automatisering for kunnskapsbaserte virksomheter. I Nordic Tide leder hun produktutvikling, strategi og alt som skjer mot markedet.</p>
-<p>Oppvokst på Frosta i Trøndelag, bosatt på Linesøya. Hun ser forskjellen på informasjon som er skrevet for avsender og informasjon som er skrevet for den som faktisk skal forstå den.</p>
+<p>Seriegrunder med bakgrunn i digital forretningsutvikling og automatisering. Oppvokst på Frosta, bosatt på Linesøya — med tett forankring til mennesker som jobber med hendene.</p>
+<p>I Nordic Tide leder hun produktutvikling, strategi og alt som skjer mot markedet.</p>
 <a href="mailto:hegechristine@aigree.app" class="person-email">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
 hegechristine@aigree.app
@@ -123,8 +119,8 @@ hegechristine@aigree.app
 <div class="person-photo">CÅ</div>
 <h3>Cecilie Hauge Ågotnes</h3>
 <div class="person-role">Medgründer</div>
-<p>Seriegrunder med erfaring fra å bygge og skalere teknologiselskaper. Hun grunnla CanEat — en matteknologiplattform som hjelper folk med allergier og intoleranser å leve tryggere med mat. I Nordic Tide jobber hun med forretningsutvikling og partnerskap.</p>
-<p>Bosatt i Bergen, med tett kobling til helse- og omsorgssektoren — et av miljøene der behovet for forståelig informasjon er størst.</p>
+<p>Seriegrunder med erfaring fra å bygge og skalere teknologiselskaper. Grunnlegger av CanEat — en matteknologiplattform som hjelper folk med allergier å leve tryggere med mat. Bosatt i Bergen.</p>
+<p>I Nordic Tide jobber hun med forretningsutvikling, partnerskap og helse- og omsorgssektoren.</p>
 <a href="mailto:cecilie@aigree.app" class="person-email">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
 cecilie@aigree.app
@@ -141,22 +137,35 @@ cecilie@aigree.app
 <div class="values-inner reveal">
 <h2>Hva vi tror på</h2>
 <div class="value-item">
-<h3>Forståelse er en rettighet, ikke en bonus</h3>
+<h3>Forståelse er en rettighet</h3>
 <p>Alle fortjener å forstå informasjonen som påvirker arbeidsforholdet deres — uavhengig av språk, bakgrunn eller lesenivå.</p>
 </div>
 <div class="value-item">
 <h3>Misforståelser har en prislapp</h3>
-<p>En ansatt som ikke forstod sikkerhetsprosedyren. En kontrakt som ble signert uten at innholdet var klart. En ny medarbeider som slutter etter tre måneder fordi ingen forklarte ordentlig. Det koster — i tid, i penger, og i tillit.</p>
+<p>En ansatt som ikke forstod sikkerhetsprosedyren. En kontrakt som ble signert uten at innholdet var klart. En ny medarbeider som slutter etter tre måneder fordi oppstarten ikke ga mening. Det koster — i tid, i penger, og i tillit.</p>
 </div>
 <div class="value-item">
-<h3>Du kan ikke lede på det du ikke vet</h3>
-<p>Tillit i arbeidslivet er bra. Men tillit uten innsikt er risiko. Når mottakeren faktisk forstår, skaper det verdi for alle — også for den som sendte informasjonen.</p>
+<h3>Informasjon er skrevet for avsender, ikke mottaker</h3>
+<p>De fleste dokumenter i arbeidslivet er skrevet av folk med fagkunnskap og overblikk — for folk uten. Det gapet er usynlig for den som skriver, men avgjørende for den som leser.</p>
 </div>
 </div>
 </div>
 </section>
 
-<!-- CTA -->
+<!-- Motivation -->
+<section class="motivation">
+<div class="container">
+<div class="motivation-inner reveal">
+<h2>Hvorfor nå</h2>
+<p>Vi har alltid visst at informasjon i arbeidslivet treffer ulikt. Men frem til nå har det ikke fantes gode nok verktøy for å gjøre noe med det i praksis — ikke uten å lage alt innholdet på nytt, og ikke uten å gjøre det manuelt for hver enkelt mottaker.</p>
+<p>Med AI har det endret seg. For første gang kan vi tilpasse informasjon til den som faktisk skal lese den — til riktig språk, riktig nivå, og i riktig kontekst — uten at noen må sitte og skrive om hvert dokument for hånd.</p>
+<p>Det betyr at forståelse ikke lenger trenger å være et spørsmål om flaks eller ressurser. Det kan være noe vi faktisk sikrer — for alle.</p>
+<p>Det er derfor vi bygger Aigree nå.</p>
+</div>
+</div>
+</section>
+
+<!-- CTA with form -->
 <section class="cta-section" id="kontakt">
 <div class="container">
 <div class="cta-inner">
@@ -201,8 +210,6 @@ cecilie@aigree.app
 <script>
 var ob=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');ob.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(function(el){ob.observe(el)});
-</script>
-<script>
 function ml_webform_success_33564892(){var $=ml_jQuery||jQuery;$('.ml-subscribe-form-33564892 .row-success').show();$('.ml-subscribe-form-33564892 .row-form').hide()}
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b"></script>
