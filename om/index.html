@@ -23,14 +23,11 @@
 .om-hero h1{font-family:var(--font-d);font-size:clamp(2.2rem,5vw,3.2rem);font-weight:700;color:var(--sage-d);line-height:1.15;letter-spacing:-.02em;margin-bottom:1.25rem;max-width:640px}
 .om-hero-intro{font-size:1.15rem;color:var(--charcoal-s);line-height:1.75;max-width:600px}
 
-/* Story — overskrift, så tekstblokk med to kolonner inni */
+/* Story */
 .story{padding:5rem 0;background:var(--white)}
-.story h2{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:2rem}
-.story-card{background:var(--cream);border:1px solid var(--taupe);border-radius:14px;padding:2.5rem 3rem}
-.story-card-text{column-count:1;column-gap:3rem}
-@media(min-width:768px){.story-card-text{column-count:2;column-fill:balance}}
-.story-card-text p{font-size:1.05rem;color:var(--charcoal-s);line-height:1.8;margin-bottom:1.25rem;break-inside:avoid}
-.story-card-text p:last-child{margin-bottom:0}
+.story h2{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:1.25rem}
+.story p{font-size:1.05rem;color:var(--charcoal-s);line-height:1.8;margin-bottom:1.25rem}
+.story p:last-child{margin-bottom:0}
 
 /* Team */
 .team{padding:5rem 0;background:var(--cream)}
@@ -59,13 +56,11 @@
 .value-card h3{font-family:var(--font-d);font-size:1.1rem;font-weight:700;color:var(--cream);margin-bottom:.5rem;line-height:1.3}
 .value-card p{font-size:.9rem;color:rgba(248,246,241,.8);line-height:1.7}
 
-/* Motivation — to-kolonne */
+/* Motivation */
 .motivation{padding:5rem 0;background:var(--white)}
-.motivation-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:start}
-@media(min-width:768px){.motivation-grid{grid-template-columns:5fr 7fr;gap:4rem}}
-.motivation h2{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--sage-d);line-height:1.25}
-.motivation-text p{font-size:1.05rem;color:var(--charcoal-s);line-height:1.8;margin-bottom:1.25rem}
-.motivation-text p:last-child{margin-bottom:0}
+.motivation h2{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;color:var(--sage-d);line-height:1.25;margin-bottom:1.25rem}
+.motivation p{font-size:1.05rem;color:var(--charcoal-s);line-height:1.8;margin-bottom:1.25rem}
+.motivation p:last-child{margin-bottom:0}
 
 @media(max-width:767px){
   .om-hero{padding:3.5rem 0 2.5rem}
@@ -101,13 +96,9 @@
 <div class="container">
 <div class="reveal">
 <h2>Hvorfor vi bygger dette</h2>
-<div class="story-card">
-<div class="story-card-text">
 <p>Det startet med en observasjon som er vanskelig å overse når du først har sett den: viktig informasjon i arbeidslivet blir sendt ut hele tiden. Kontrakter, håndbøker, prosedyrer, rettigheter. Men ingen vet egentlig om mottakeren forstod det som stod der.</p>
 <p>Folk signerer ting de ikke har forstått. Noen fordi språket er vanskelig. Andre fordi dokumentet er langt og komplekst. Og noen fordi det føles flaut å spørre. Å følge opp forståelse for hver enkelt er krevende — og i praksis umulig å gjøre manuelt.</p>
 <p>Vi så at verktøyene som fantes enten sendte informasjon uten å sjekke forståelse, eller testet folk uten å tilpasse innholdet først. Ingen gjorde begge deler — og ingen ga arbeidsgiveren oversikt over hva som faktisk var forstått. Så vi begynte å bygge det selv.</p>
-</div>
-</div>
 </div>
 </div>
 </section>
@@ -173,16 +164,11 @@ cecilie@aigree.app
 <!-- Motivation — overskrift venstre, tekst høyre -->
 <section class="motivation">
 <div class="container">
-<div class="motivation-grid reveal">
-<div>
+<div class="reveal">
 <h2>Hvorfor nå</h2>
-</div>
-<div class="motivation-text">
 <p>Vi har alltid visst at informasjon i arbeidslivet treffer ulikt. Men frem til nå har det ikke fantes gode nok verktøy for å gjøre noe med det i praksis — ikke uten å lage alt innholdet på nytt, og ikke uten å gjøre det manuelt for hver enkelt mottaker.</p>
 <p>Med AI har det endret seg. For første gang kan vi tilpasse informasjon til den som faktisk skal lese den — til riktig språk, riktig nivå, og i riktig kontekst — uten at noen må sitte og skrive om hvert dokument for hånd.</p>
-<p>Det betyr at forståelse ikke lenger trenger å være et spørsmål om flaks eller ressurser. Det kan være noe vi faktisk sikrer — for alle.</p>
-<p>Det er derfor vi bygger Aigree nå.</p>
-</div>
+<p>Det betyr at forståelse ikke lenger trenger å være et spørsmål om flaks eller ressurser. Det kan være noe vi faktisk sikrer — for alle. Det er derfor vi bygger Aigree nå.</p>
 </div>
 </div>
 </section>
