@@ -220,15 +220,11 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
 /* Footer */
-footer{padding:3rem 0;background:#1E2A2A;border-top:none}
-.footer-inner{display:flex;flex-direction:column;align-items:center;gap:1.25rem;text-align:center}
-@media(min-width:768px){.footer-inner{flex-direction:row;justify-content:space-between;text-align:left}}
-.footer-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.7)}
-.footer-nav{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}
-.footer-nav a{color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;font-weight:500;transition:color .15s}
-.footer-nav a:hover{color:var(--white)}
-.footer-text{font-size:.78rem;color:rgba(255,255,255,.35);line-height:1.6}
-.footer-text a{color:rgba(255,255,255,.45);text-decoration:none}.footer-text a:hover{color:var(--white)}
+footer{padding:1.5rem 0;background:#1E2A2A;border-top:none}
+.footer-inner{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;text-align:center;font-size:.78rem;color:rgba(255,255,255,.4);line-height:2}
+.footer-inner a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .15s}
+.footer-inner a:hover{color:var(--white)}
+.footer-sep{margin:0 .6rem;color:rgba(255,255,255,.2)}
 
 /* Responsive */
 @media(max-width:767px){
