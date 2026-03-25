@@ -228,8 +228,8 @@ footer{padding:2rem 0;background:#1E2A2A;border-top:none}
 .footer-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.7)}
 .footer-company{font-size:.78rem;color:rgba(255,255,255,.4)}
 .footer-links{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.4)}
-.footer-links a{color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s}
-.footer-links a:hover{color:var(--white)}
+.footer-links a,.footer-links a:visited,.footer-links a:link{color:rgba(255,255,255,.5)!important;text-decoration:none!important;transition:color .15s}
+.footer-links a:hover{color:var(--white)!important}
 .footer-sep{margin:0 .6rem;color:rgba(255,255,255,.15)}
 
 /* Responsive */
