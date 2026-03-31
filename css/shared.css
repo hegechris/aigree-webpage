@@ -227,11 +227,11 @@ footer{padding:2rem 0;background:#1E2A2A;border-top:none}
 .footer-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.75rem}
 .footer-gdpr{font-size:.8rem;color:rgba(248,246,241,.5);margin-bottom:.75rem;text-align:center;letter-spacing:.03em;padding-bottom:.75rem;border-bottom:1px solid rgba(255,255,255,.1)}
 .footer-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.7)}
-.footer-company{font-size:.78rem;color:rgba(255,255,255,.4)}
+.footer-company{font-size:.78rem;color:rgba(255,255,255,.85)}
 .footer-company a,.footer-company a:visited,.footer-company a:link{color:inherit!important;text-decoration:none!important}
 .footer-company a:hover{color:var(--white)!important}
 .footer-links{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;font-size:.78rem;color:rgba(255,255,255,.4)}
-.footer-links a,.footer-links a:visited,.footer-links a:link{color:rgba(255,255,255,.5)!important;text-decoration:none!important;transition:color .15s}
+.footer-links a,.footer-links a:visited,.footer-links a:link{color:rgba(255,255,255,.85)!important;text-decoration:none!important;transition:color .15s}
 .footer-links a:hover{color:var(--white)!important}
 .footer-sep{margin:0 .6rem;color:rgba(255,255,255,.15)}
 
