@@ -219,6 +219,10 @@ nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-
 @keyframes ml-form-embedSubmitLoad{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
 
+/* GDPR note */
+.gdpr-note{padding:1.25rem 0;background:var(--taupe-l);border-top:1px solid var(--taupe)}
+.gdpr-note p{text-align:center;font-size:.875rem;color:var(--charcoal-s)}
+
 /* Footer */
 footer{padding:2rem 0;background:#1E2A2A;border-top:none}
 .footer-inner{max-width:1200px;margin:0 auto;padding:0 1.25rem}
