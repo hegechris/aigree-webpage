@@ -225,7 +225,7 @@ footer{padding:2rem 0;background:#1E2A2A;border-top:none}
 @media(min-width:768px){.footer-inner{padding:0 2rem}}
 @media(min-width:1024px){.footer-inner{padding:0 2.5rem}}
 .footer-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.75rem}
-.footer-gdpr{font-size:.75rem;color:rgba(255,255,255,.35);margin-bottom:.75rem}
+.footer-gdpr{font-size:.8rem;color:rgba(255,255,255,.55);margin-bottom:.75rem;text-align:center;letter-spacing:.03em}
 .footer-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.7)}
 .footer-company{font-size:.78rem;color:rgba(255,255,255,.4)}
 .footer-company a,.footer-company a:visited,.footer-company a:link{color:inherit!important;text-decoration:none!important}
