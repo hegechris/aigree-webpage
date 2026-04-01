@@ -227,8 +227,8 @@ footer{padding:2rem 0;background:#1E2A2A;border-top:none}
 .footer-top{display:flex;align-items:center;justify-content:space-between;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.75rem}
 /* Trust section */
 .trust-section{padding:2.5rem 0;background:var(--sage-d);border-top:none}
-.trust-box{display:flex;align-items:center;gap:1.25rem}
-.trust-icon{flex-shrink:0;width:48px;height:48px;background:rgba(255,255,255,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--burnt);box-shadow:none}
+.trust-box{display:flex;align-items:center;gap:1.25rem;justify-content:center}
+.trust-icon{flex-shrink:0;width:48px;height:48px;background:var(--burnt);border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:none}
 .trust-text{font-size:.9rem;color:rgba(255,255,255,.75);line-height:1.65;margin:0}
 .trust-text strong{color:var(--white);font-weight:600}
 .footer-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:rgba(255,255,255,.7)}
